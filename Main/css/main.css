@@ -68,8 +68,8 @@ img {
 body {
   background-color: var(--background-color);
   position: relative;
-
-
+  margin: 0;
+  min-height: 100vh;
 }
 
 
@@ -80,8 +80,9 @@ body {
 /*Header*/
 header {
   position: absolute;
-  top: 5%;
-  left: 80%;
+  top: 2%;
+  left: 75%;
+  z-index: 2;
 }
 .contact-button {
   font-size: 1.3em;
@@ -101,6 +102,9 @@ header {
   border-radius: 50px; 
   padding: 0.2rem; 
   background-image: var(--complementary-linear-gradient); 
+  mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
   -webkit-mask: 
      linear-gradient(#fff 0 0) content-box, 
      linear-gradient(#fff 0 0);
@@ -113,9 +117,30 @@ header {
 
 /*Main Content*/
 main {
-
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
-
+.bg-1 {
+  position: relative;
+}
+.bg-image {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1920 / 1272;
+  top: 0;
+  left: 0;
+}
+.bg-image-darken {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1920 / 1272;
+  background-color: #000;
+  opacity: 50%;
+}
 
 
 
