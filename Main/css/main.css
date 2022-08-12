@@ -4,7 +4,8 @@ Table of Contents
   Root
     Fonts
     Clear Defaults
-
+    Scroll Bar 
+    
   Body
   
   Header
@@ -60,8 +61,27 @@ Table of Contents
   margin: 0;
   padding: 0;
 }
+html{
+  font-size: 16px;
+  scrollbar-color: var(--complementary-color) var(--background-color); /*#8f75ee */
+  scrollbar-width: thin;
+}
 img {
   width: 4rem;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar{
+  width: 1.1rem;
+  background: transparent;
+}
+::-webkit-scrollbar-track{
+  background: var(--background-color);
+}
+::-webkit-scrollbar-thumb{
+  background-image: var(--complementary-linear-gradient);
+  border: .2rem solid var(--background-color);
+  border-radius: 20px;
 }
 
 /******************************************************************************************************/
@@ -90,7 +110,7 @@ header {
   border-radius: 50px;
 }
 
-/* gradient outside */
+/* gradient border */
 .contact-button::before{
   content: "";
   position: absolute;
@@ -123,6 +143,7 @@ main {
   flex-direction: column;
   align-items: center;
 }
+
 #section1{
   width: 100%;
   min-height: 102vh;
@@ -134,19 +155,11 @@ main {
   background-position: 30%;
   background-blend-mode: multiply;
 }
-
-
-/*
-.bg-image-darken {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+#section2,
+#section3{
   width: 100%;
-  aspect-ratio: 1920 / 1272;
-  background-color: #000;
-  opacity: 50%;
-} */
+  min-height: 100vh;
+}
 
 /* .d-logo {
   position: relative;
