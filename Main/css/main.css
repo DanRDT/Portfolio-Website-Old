@@ -25,7 +25,7 @@ Table of Contents
   --secondary-color: #000;
   --complementary-color: #F87D37;
   --complementary-radial-gradient: radial-gradient(#F87D37, #FBAA23);
-  --complementary-linear-gradient: linear-gradient(155deg, #F87D37, #FBAA23 100%);
+  --complementary-linear-gradient: linear-gradient(130deg, #F87D37, #FBAA23 100%);
 }
 /*Fonts*/
 @font-face {
@@ -60,9 +60,11 @@ Table of Contents
   font-family: raleway, sans-serif;
   margin: 0;
   padding: 0;
+  font-weight: 100;
 }
 html{
   font-size: 16px;
+  
   scrollbar-color: var(--complementary-color) var(--background-color); /*#8f75ee */
   scrollbar-width: thin;
 }
@@ -98,15 +100,23 @@ body {
 
 /*Header*/
 header {
-  position: absolute;
-  top: 2%;
-  right: 10%;
-  z-index: 2;
 }
+.logo {
+  position: fixed;
+  top: 0rem;
+  left: 2%;
+  z-index: 2;
+  width: 10rem;
+}
+
 .contact-button {
+  position: absolute;
+  top: 2rem;
+  right: 5%;
+  z-index: 2;
   font-size: 1.3em;
   padding: 0.5rem 3rem;
-  border: solid 0.19rem var(--complementary-color);
+  border: solid 0.15rem var(--complementary-color);
   border-radius: 50px;
 }
 
@@ -114,10 +124,11 @@ header {
 .contact-button::before{
   content: "";
   position: absolute;
-  top: 18px;
-  left: 0;
-  height: 72%;
-  width: 100%;
+  top: -3px;
+  left: -3px;
+  height: 115%;
+  width: 104%;
+  transform: scale();
   border-radius: 50px; 
   padding: 0.2rem; 
   background-image: var(--complementary-linear-gradient); 
@@ -145,9 +156,10 @@ main {
 }
 
 #section1{
+  position: relative;
   width: 100%;
-  min-height: 102vh;
   height: calc(100vw * 0.6625); /*create bg-image aspect ratio: 1920/1272*/
+  min-height: 102vh;
   background-color: hwb(0 50% 50%);
   background-image: url(../imgFiles/paul-earle-xJ2tjuUHD9M-unsplash.jpg);
   background-repeat: no-repeat;
@@ -161,30 +173,53 @@ main {
   min-height: 100vh;
 }
 
-/* .d-logo {
+.title {
+  font-family: iceland;
+  font-size: 12rem;
+}
+.name:nth-of-type(1) {
   position: relative;
-  top: 50%;
-  left: 50%;
+  top: 15rem;
+  left: 15.4%;
+}
+.d-logo {
+  position: relative;
+  transform: scale(7);
+}
+.fst-name {
+  position: relative;
+  top: -7rem;
+  left: 2.5rem;
+}
+
+.name:nth-of-type(2) {
+  position: relative;
+  top: 10rem;
+  left: 16%;
 }
 .p-logo {
   position: relative;
+  transform: scale(7);
 }
-.d-logo img,
-.p-logo img {
-  width: 25rem;
+.lst-name {
   position: relative;
+  top: -9.5rem;
+  left: 10.5rem;
+  padding-bottom: 10rem;
 }
-.title {
-  font-family: iceland;
-  font-size: clamp(5rem, 12vw, 16rem);
-  position: absolute;
-  top: 0;
-  left: 0;
-} */
 
-
-
-
+.subtitle {
+  font-size: 2.6rem;
+  font-family: roboto-mono;
+  width: 60%;
+  color: transparent;
+  background-image: var(--complementary-radial-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  position: relative;
+  top: -12rem;
+  left: 33%;
+}
 
 
 
@@ -219,8 +254,18 @@ main {
 
 /****Media Queries*****/
 
-
-
-
+@media (min-width: 1600px) {
+  #section1{
+    max-height: 200vh;
+  }
+}
+@media (max-width: 1000px) and (max-height: 650px), 
+       (min-width: 1000px) and (max-height: 350px) 
+{
+  #section1{
+    min-height: 180vh;
+    max-height: 1000vh;
+  }
+}
 
 /******************************************************************************************************/
