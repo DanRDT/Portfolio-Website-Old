@@ -2,6 +2,7 @@
 Table of Contents
 
   Root
+    Fonts
     Clear Defaults
 
   Body
@@ -17,20 +18,59 @@ Table of Contents
 */
 
 /*Root*/
-
-
-
-
+:root {
+  --background-color: #181818;
+  --primary-color: #fff;
+  --secondary-color: #000;
+  --complementary-color: #F87D37;
+  --complementary-radial-gradient: radial-gradient(#F87D37, #FBAA23);
+  --complementary-linear-gradient: linear-gradient(155deg, #F87D37, #FBAA23 100%);
+}
+/*Fonts*/
+@font-face {
+  font-family: 'iceland';
+  src: url('../fonts/Iceland.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'raleway';
+  src: url('../fonts/Raleway-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'raleway-thin';
+  src: url('../fonts/Raleway-Medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'roboto-mono';
+  src: url('../fonts/RobotoMono-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /*Clear Defaults*/
 *, *::before, *::after {
   box-sizing: border-box;
+  color: var(--primary-color);
+  font-family: Raleway, sans-serif;
+}
+img {
+  width: 4rem;
 }
 
 /******************************************************************************************************/
 
 /*Body*/
+body {
+  background-color: var(--background-color);
+  position: relative;
 
+
+}
 
 
 
@@ -38,14 +78,67 @@ Table of Contents
 /******************************************************************************************************/  
 
 /*Header*/
+header {
+  position: absolute;
+  top: 5%;
+  left: 80%;
+}
+.contact-button {
+  font-size: 1.3em;
+  padding: 0.5rem 3rem;
+  border: solid 0.19rem var(--complementary-color);
+  border-radius: 50px;
+}
 
-
-
+/* gradient outside */
+.contact-button::before{
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 0;
+  height: 72%;
+  width: 100%;
+  border-radius: 50px; 
+  padding: 0.2rem; 
+  background-image: var(--complementary-linear-gradient); 
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude; 
+}
 
 
 /******************************************************************************************************/
 
 /*Main Content*/
+main {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
