@@ -80,7 +80,7 @@ body {
 header {
   position: absolute;
   top: 2%;
-  left: 75%;
+  right: 10%;
   z-index: 2;
 }
 .contact-button {
@@ -124,18 +124,19 @@ main {
   align-items: center;
 }
 #section1{
-  margin-top: 20vh;
-}
-.bg {
-  position: relative;
-}
-.bg-image {
-  position: absolute;
   width: 100%;
-  aspect-ratio: 1920 / 1272;
-  top: 0;
-  left: 0;
+  min-height: 102vh;
+  height: calc(100vw * 0.6625); /*create bg-image aspect ratio: 1920/1272*/
+  background-color: hwb(0 50% 50%);
+  background-image: url(../imgFiles/paul-earle-xJ2tjuUHD9M-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 30%;
+  background-blend-mode: multiply;
 }
+
+
+/*
 .bg-image-darken {
   content: '';
   position: absolute;
@@ -145,9 +146,9 @@ main {
   aspect-ratio: 1920 / 1272;
   background-color: #000;
   opacity: 50%;
-}
+} */
 
-.d-logo {
+/* .d-logo {
   position: relative;
   top: 50%;
   left: 50%;
@@ -166,7 +167,7 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-}
+} */
 
 
 
