@@ -56,7 +56,9 @@ Table of Contents
 *, *::before, *::after {
   box-sizing: border-box;
   color: var(--primary-color);
-  font-family: Raleway, sans-serif;
+  font-family: raleway, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 img {
   width: 4rem;
@@ -71,9 +73,6 @@ body {
   margin: 0;
   min-height: 100vh;
 }
-
-
-
 
 /******************************************************************************************************/  
 
@@ -120,8 +119,14 @@ main {
   width: 100%;
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.bg-1 {
+#section1{
+  margin-top: 20vh;
+}
+.bg {
   position: relative;
 }
 .bg-image {
@@ -142,8 +147,26 @@ main {
   opacity: 50%;
 }
 
-
-
+.d-logo {
+  position: relative;
+  top: 50%;
+  left: 50%;
+}
+.p-logo {
+  position: relative;
+}
+.d-logo img,
+.p-logo img {
+  width: 25rem;
+  position: relative;
+}
+.title {
+  font-family: iceland;
+  font-size: clamp(5rem, 12vw, 16rem);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
 
 
