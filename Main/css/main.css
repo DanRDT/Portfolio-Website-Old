@@ -282,16 +282,17 @@ main {
   width: fit-content;
 }
 .quote:nth-child(1) {
-  padding: ;
+  padding: 15% 40% 20% 0;
 }
 
 .quote:nth-child(2) {
-  top: 0;
-  right: 1px;
-  padding: ;
-  
-
+  padding: 25% 0 15% 40%;
 }
+
+
+
+
+
 
 .bg-shapes {
   position: relative;
