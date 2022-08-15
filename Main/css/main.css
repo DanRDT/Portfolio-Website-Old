@@ -15,6 +15,7 @@ Table of Contents
     Section 2
     Section 3
   Animations
+    Scrolling Arrows
 
   Media Queries
 
@@ -26,7 +27,7 @@ Table of Contents
   --primary-color: #fff;
   --secondary-color: #000;
   --complementary-color: #F87D37;
-  --complementary-radial-gradient: radial-gradient(#F87D37, #FBAA23);
+  --complementary-radial-gradient: radial-gradient(#F87D37 15%, #FBAA23);
   --complementary-linear-gradient: linear-gradient(130deg, #F87D37, #FBAA23 100%);
 }
 /*Fonts*/
@@ -66,12 +67,14 @@ Table of Contents
 }
 html{
   font-size: 16px;
-  
   scrollbar-color: var(--complementary-color) var(--background-color); /*#8f75ee */
   scrollbar-width: thin;
 }
 img {
   width: 4rem;
+}
+svg {
+  width: 5rem;
 }
 
 /* Scroll Bar */
@@ -221,6 +224,21 @@ main {
   width: 100%;
 }
 
+.scroll-arrow {
+  display: flex;
+  justify-content: center;
+}
+#top-arrow {
+  animation: top-arrow 2s ease-in-out infinite;
+}
+.middle-arrow {
+  animation: middle-arrows 2s ease-in-out infinite;
+}
+#bottom-arrow {
+  animation: bottom-arrow 2s ease-in-out infinite;
+}
+
+
 
 /* Section 2 */
 #section2 {
@@ -241,6 +259,8 @@ main {
 .quote > span {
   color: transparent;
   background-image: var(--complementary-radial-gradient);
+  background-size: 150% 150%;
+  background-position: 100% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   text-decoration: underline solid var(--complementary-color) 0.15rem;
@@ -250,6 +270,11 @@ main {
   text-decoration: underline dashed var(--complementary-color) 0.1rem;
 }
 
+.quotes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .quote {
   font-size: 2.8rem;
   position: relative;
@@ -257,13 +282,13 @@ main {
   width: fit-content;
 }
 .quote:nth-child(1) {
-  padding: 15% 0 20% 5%;
+  padding: ;
 }
 
 .quote:nth-child(2) {
   top: 0;
   right: 1px;
-  padding: 10% 5% 10% 0;
+  padding: ;
   
 
 }
@@ -309,7 +334,46 @@ main {
 
 /*Animations*/
 
-
+/* Scrolling Arrows */
+@keyframes top-arrow {
+  0%{
+    transform: translateY(-20px); /* used for pause */
+    opacity: 0;
+  }
+  30%{
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(145px);
+    opacity: 1;
+  }
+}
+@keyframes middle-arrows {
+  0%{
+    transform: translateY(8px); /* used for pause */
+  }
+  45%{
+    transform: translateY(8px);
+  }
+  100%{
+    transform: translateY(145px);
+  }
+}
+@keyframes bottom-arrow {
+  0%{
+    transform: translateY(0px); /* used for pause */
+    opacity: 1;
+  }
+  50%{
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100%{
+    transform: translateY(170px);
+    opacity: 0;
+  }
+}
 
 
 
