@@ -282,11 +282,11 @@ main {
   width: fit-content;
 }
 .quote:nth-child(1) {
-  padding: 15% 40% 20% 0;
+  padding: 20% 40% 20% 0;
 }
 
 .quote:nth-child(2) {
-  padding: 25% 0 15% 40%;
+  padding: 20% 0 25% 40%;
 }
 
 
@@ -295,10 +295,40 @@ main {
 
 
 .bg-shapes {
-  position: relative;
-  top: 50rem;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
-
+.bg-shape:nth-child(1) {
+  position: absolute;
+  top: 10%;
+  left: 80%;
+}
+.bg-shape:nth-child(2) {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}
+.bg-shape:nth-child(3) {
+  position: absolute;
+  top: 40%;
+  left: 88%;
+}
+.bg-shape:nth-child(4) {
+  position: absolute;
+  top: 55%;
+  left: 55%;
+}
+.bg-shape:nth-child(5) {
+  position: absolute;
+  top: 77%;
+  left: 15%;
+}
+.bg-shape:nth-child(6) {
+  position: absolute;
+  top: 88%;
+  left: 75%;
+}
 
 
 
