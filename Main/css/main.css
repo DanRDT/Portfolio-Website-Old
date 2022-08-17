@@ -15,6 +15,7 @@ Table of Contents
       Title
       Scroll Arrow
     Section 2
+      Skew
       Quotes
       Background Shapes
     Section 3
@@ -28,8 +29,8 @@ Table of Contents
 
 /*Root*/
 :root {
-  --background-color2: #181818;
-  --background-color: hwb(0 11.5% 88.5%);
+  --background-color: #181818;
+  --background-color2: hwb(0 11.5% 88.5%);
   --primary-color: #fff;
   --secondary-color: #000;
   --complementary-color: #F87D37;
@@ -182,9 +183,6 @@ body {
 main {
   width: 100%;
   overflow: hidden;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
 }
 
 /* Section 1 */
@@ -223,7 +221,6 @@ main {
   margin-left: 5rem;
 }
 
-
 .name:nth-of-type(2) {
   display: flex;
   padding-left: 20%;
@@ -237,7 +234,6 @@ main {
   bottom: -1rem;
   margin-left: 5rem;
 }
-
 
 .subtitle {
   font-size: 2.6rem;
@@ -274,22 +270,42 @@ main {
 
 /* Section 2 */
 #section2 {
+  position: relative;
   width: 100%;
   min-height: 100vh;
-  transform: skewY(-5deg);
-  z-index: -2;
+  z-index: 1;
 }
+
+/* Skew */
 .skew {
+  position: absolute;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
   width: 100%;
+  height: 100%;
+  z-index: -1;
 }
-.skewright1 {
-  background-color: var(--background-color2);
-  transform: skewY(-5deg);
+.skewright, 
+.skewleft {
+  position: absolute;
+  top: 0; 
+  background-color: var(--background-color);
+  height: 100%;
+  z-index: 100;
 }
-.skewleft1 {
-  background-color: var(--background-color2);
-  transform: skewY(10deg);
+
+.skewright {
+  left: 0;
+  width: calc(50% + 1px);
+  transform: skewY(5deg) scaleY(105%);
 }
+.skewleft {
+  right: 0;
+  width: 50%;
+  transform: skewY(-5deg) scaleY(105%);
+}
+
 
 /* Quotes */
 .quote > span {
@@ -373,23 +389,16 @@ main {
 
 /* Section 3 */
 #section3 {
+  position: relative;
   width: 100%;
-  min-height: 100vh;
-  z-index: 1;
-  background-color: var(--background-color);
-  transform: skewY(-5deg);
+  min-height: 110vh;
+  z-index: -10;
+  background-color: var(--background-color2);
   /* background-image: radial-gradient(hwb(0 35% 65%) -200%,  hwb(0 9% 91%) 90%);
   background-size: 400% 400%;
   background-position: 50% 100%; */
 }
-.skewright2 {
-  background-color: var(--background-color);
-  transform: skewY(-5deg);
-}
-.skewleft2 {
-  background-color: var(--background-color);
-  transform: skewY(10deg);
-}
+
 
 /******************************************************************************************************/
 
