@@ -12,8 +12,13 @@ Table of Contents
 
   Main Content
     Section 1
+      Title
+      Scroll Arrow
     Section 2
+      Quotes
+      Background Shapes
     Section 3
+
   Animations
     Scrolling Arrows
 
@@ -99,6 +104,7 @@ body {
   position: relative;
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /******************************************************************************************************/  
@@ -171,59 +177,58 @@ main {
   background-position: 30%;
   background-blend-mode: multiply;
   z-index: -3;
+  display: flex;
+  flex-direction: column;
 }
 
-
+/* Title */
 .title {
   font-family: iceland;
   font-size: 12rem;
 }
+
 .name:nth-of-type(1) {
+  display: flex;
+  padding: calc((12%) + 3.5rem) 0 0 10%;
   position: relative;
-  top: 15rem;
-  left: 15.4%;
 }
 .d-logo {
-  position: relative;
   transform: scale(7);
-}
-.fst-name {
   position: relative;
-  top: -7rem;
-  left: 2.5rem;
+  right: -1.5rem;
+  bottom: 1rem;
+  margin-left: 5rem;
 }
 
+
 .name:nth-of-type(2) {
+  display: flex;
+  padding-left: 20%;
   position: relative;
-  top: 10rem;
-  left: 16%;
+  top: -4rem;
 }
 .p-logo {
-  position: relative;
   transform: scale(7);
-}
-.lst-name {
   position: relative;
-  top: -9.5rem;
-  left: 10.5rem;
-  padding-bottom: 10rem;
+  right: 6.5rem;
+  bottom: -1rem;
+  margin-left: 5rem;
 }
+
+
 .subtitle {
   font-size: 2.6rem;
   font-family: roboto-mono;
-  width: 60%;
   color: transparent;
   background-image: var(--complementary-radial-gradient);
   background-clip: text;
   -webkit-background-clip: text;
+  padding: 0 1rem 0 33.5%;
   position: relative;
-  top: -12rem;
-  left: 33%;
-}
-.skew {
-  width: 100%;
+  top: -6rem;
 }
 
+ /* Scroll Arrow */
 .scroll-arrow {
   display: flex;
   justify-content: center;
@@ -247,6 +252,9 @@ main {
   transform: skewY(-5deg);
   z-index: -2;
 }
+.skew {
+  width: 100%;
+}
 .skewright1 {
   background-color: var(--background-color);
   transform: skewY(-5deg);
@@ -256,6 +264,7 @@ main {
   transform: skewY(10deg);
 }
 
+/* Quotes */
 .quote > span {
   color: transparent;
   background-image: var(--complementary-radial-gradient);
@@ -289,11 +298,7 @@ main {
   padding: 20% 0 25% 40%;
 }
 
-
-
-
-
-
+/* Background Shapes */
 .bg-shapes {
   position: absolute;
   height: 100%;
@@ -303,38 +308,38 @@ main {
   position: absolute;
   top: 10%;
   left: 80%;
+  transform: rotate(-5deg);
 }
 .bg-shape:nth-child(2) {
   position: absolute;
   top: 30%;
   left: 10%;
+  transform: rotate(-165deg);
 }
 .bg-shape:nth-child(3) {
   position: absolute;
   top: 40%;
   left: 88%;
+  transform: rotate(5deg);
+
 }
 .bg-shape:nth-child(4) {
   position: absolute;
   top: 55%;
   left: 55%;
+  transform: rotate(-3deg);
 }
 .bg-shape:nth-child(5) {
   position: absolute;
   top: 77%;
   left: 15%;
+  transform: rotate(5deg);
 }
 .bg-shape:nth-child(6) {
   position: absolute;
   top: 88%;
   left: 75%;
 }
-
-
-
-
-
-
 
 
 
@@ -368,40 +373,40 @@ main {
 /* Scrolling Arrows */
 @keyframes top-arrow {
   0%{
-    transform: translateY(-20px); /* used for pause */
+    transform: translateY(-30px); /* used for pause */
     opacity: 0;
   }
   30%{
-    transform: translateY(-20px);
+    transform: translateY(-30px);
     opacity: 0;
   }
   100%{
-    transform: translateY(145px);
+    transform: translateY(155px);
     opacity: 1;
   }
 }
 @keyframes middle-arrows {
   0%{
-    transform: translateY(8px); /* used for pause */
+    transform: translateY(18px); /* used for pause */
   }
   45%{
-    transform: translateY(8px);
+    transform: translateY(18px);
   }
   100%{
-    transform: translateY(145px);
+    transform: translateY(155px);
   }
 }
 @keyframes bottom-arrow {
   0%{
-    transform: translateY(0px); /* used for pause */
+    transform: translateY(10px); /* used for pause */
     opacity: 1;
   }
   50%{
-    transform: translateY(0px);
+    transform: translateY(10px);
     opacity: 1;
   }
   100%{
-    transform: translateY(170px);
+    transform: translateY(175px);
     opacity: 0;
   }
 }
@@ -413,18 +418,6 @@ main {
 
 /****Media Queries*****/
 
-@media (min-width: 1600px) {
-  #section1{
-    max-height: 200vh;
-  }
-}
-@media (max-width: 1000px) and (max-height: 650px), 
-       (min-width: 1000px) and (max-height: 350px) 
-{
-  #section1{
-    min-height: 180vh;
-    max-height: 1000vh;
-  }
-}
+
 
 /******************************************************************************************************/
