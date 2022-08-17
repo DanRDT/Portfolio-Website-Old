@@ -74,6 +74,7 @@ Table of Contents
   margin: 0;
   padding: 0;
   font-weight: 100;
+  z-index: 1; /* remove later */
 }
 html{
   font-size: 16px;
@@ -165,18 +166,18 @@ body {
 
 .contact-bg {
   position: absolute;
-  top: 0;
+  top: -0.2rem;
   left: -0.1rem;
   padding: 1.3rem 5.6rem;
   opacity: 0;
   z-index: -1;
   border-radius: 50px;
   background-image: var(--complementary-linear-gradient);
-  transform: translateY(1rem) scaleY(0.2);
+  transform: translateY(1rem) scale(0.95, 0.2);
 }
 .contact-button:hover .contact-bg{
   opacity: 1;
-  transform: translateY(0) scaleY(1);
+  transform: translateY(0) scale(1);
   transition: opacity 0.2s linear, transform 0.15s;
   overflow: hidden;
 }
@@ -494,37 +495,87 @@ main {
 }
 
 .contact-form-button {
-  padding: 5rem 0 5rem 0;
-  cursor: pointer;
+  position: relative;
+  padding: 4rem 5rem 2.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .button-border {
   padding: 0.7rem;
   border: solid 0.3rem var(--primary-color);
   border-radius: 50px;
+  cursor: pointer;
 }
 .button-border:hover {
   background-color: var(--primary-color);
+}
+.button-border img {
+  width: 4rem;
+  transform: scaleX(0.95);
 }
 .button-border:hover img {
   filter: contrast(400%);
 }
 
-.button-border img {
-  width: 4rem;
-  transform: scaleX(0.95);
-}
-
-
-
-
-
-
-
 
 /* Contact Form */
 
+.contact-form-container {
+  z-index: -1; /* remove later */
+  position: absolute;
+  bottom: 1.5rem;
+  background-color: var(--primary-color);
+  min-height: 45rem;
+  width: 85vw;
+  border-radius: 50px;
+}
 
+.x-button {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  cursor: pointer;
+}
 
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-form h1 {
+  color: var(--secondary-color);
+  padding: 2.7rem 0 1.5rem 0;
+  text-align: center;
+}
+.contact-form h1 span {
+  color: var(--secondary-color);
+  text-decoration: 2px underline var(--complementary-color);
+}
+.contact-form h2 {
+  color: var(--secondary-color);
+  align-self: flex-start;
+  padding: 1.5rem 0 0.5rem 20%;
+}
+.contact-form input {
+  width: 60%;
+  border: none;
+  background-color: #D9D9D9;
+  font-size: 1.6rem;
+}
+.contact-form input:nth-child(7) {
+  min-height: 10rem;
+}
+.contact-form button {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  background: transparent;
+  border: solid 0.3rem var(--complementary-color);
+  border-radius: 50px;
+  margin-top: 1.5rem;
+  padding: 0.7rem 3.3rem;
+}
 
 /******************************************************************************************************/
 
