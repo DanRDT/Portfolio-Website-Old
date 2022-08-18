@@ -9,19 +9,27 @@ Table of Contents
   Body
   
   Header
+    Gradient Border
 
   Main Content
+
     Section 1
       Title
       Scroll Arrow
+
     Section 2
       Skew
       Quotes
       Background Shapes
+
     Section 3
       Subtitle
       Contact Info
       Contact Form
+        Contact Labels
+        Contact Inputs
+        Message Box
+        Submit Button
 
   Animations
     Scrolling Arrows
@@ -141,7 +149,7 @@ body {
   text-decoration: none;
 }
 
-/* gradient border */
+/* Gradient Border */
 .contact-button::before{
   content: "";
   position: absolute;
@@ -496,7 +504,7 @@ main {
 
 .contact-form-button {
   position: relative;
-  padding: 4rem 5rem 2.5rem 5rem;
+  margin: 4rem 5rem 2.5rem 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -506,6 +514,7 @@ main {
   border: solid 0.3rem var(--primary-color);
   border-radius: 50px;
   cursor: pointer;
+  background-color: white;
 }
 .button-border:hover {
   background-color: var(--primary-color);
@@ -517,27 +526,95 @@ main {
 .button-border:hover img {
   filter: contrast(400%);
 }
-
+.contact-form-button.active > .contact-form-container {
+  opacity: 1;
+  pointer-events: all;
+}
 
 /* Contact Form */
 
 .contact-form-container {
   z-index: -1; /* remove later */
   position: absolute;
-  bottom: 2.5rem;
+  bottom: 0;
   background-color: var(--primary-color);
   min-height: 45rem;
   width: 85vw;
   border-radius: 50px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .x-button {
   position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
+  top: 2.5rem;
+  left: 4rem;
+  padding: 1.5rem;
   cursor: pointer;
+  transition: transform 0.2s;
 }
 
+.line1,
+.line2 {
+  position: absolute;
+  top: -0.5rem;
+  left: 1.2rem;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 2rem 0.3rem;
+  background-size: 300% 300%;
+  background-position: bottom;
+  transition: background-position 0.2s ease;
+}
+.line1 {
+  background-image: var(--complementary-linear-gradient);
+  transform: rotate(45deg);
+}
+.line2 {
+  background-image: var(--complementary-linear-gradient);
+  transform: rotate(-45deg);
+}
+
+.x-button:hover {
+  transform: scale(1.1);
+}
+.x-button:hover > .line1,
+.x-button:hover > .line2 {
+  background-position: top;
+}
+
+
+.contact-bg-shapes > img:nth-child(1){
+  position: absolute;
+  top: 15%;
+  left: 8%;
+}
+.contact-bg-shapes > img:nth-child(2){
+  position: absolute;
+  top: 27%;
+  right: 7%;
+}
+.contact-bg-shapes > img:nth-child(3){
+  position: absolute;
+  bottom: 15%;
+  left: 12%;
+}
+.contact-bg-shapes > img:nth-child(4){
+  position: absolute;
+  bottom: 10%;
+  right: 18%;
+}
+
+
+
+
+
+
+
+
+
+
+/* Contact Labels */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -558,6 +635,7 @@ main {
   padding: 1.5rem 0 0.5rem 20%;
 }
 
+/* Contact Inputs */
 .contact-form input,
 .contact-form textarea {
   font-size: 1.6rem;
@@ -573,25 +651,23 @@ main {
 .contact-form input {
   width: 60%;
   padding-left: 0.7rem;
-  background-size: 5% 2px;
-  transition: background-size 0.3s ease;
+  background-size: 20% 2px;
 }
 .contact-form input:focus {
   background-image: linear-gradient(#555, #555);
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100% 2px;
+  transition: background-size 0.3s ease;
 }
 
 
-
+/* Message Box */
 .message-container {
   --border-time: 80ms;
-
   position: relative;
   width: 60%;
 }
-
 .message {
   padding: 0.7rem;
   width: 100%;
@@ -624,9 +700,12 @@ main {
               height var(--border-time) ease, 
               border-width 0.01s ease calc((var(--border-time)) * 2); 
 }
-.message:focus ~ .m-border::before {
+.message:focus ~ .m-border::before, 
+.message:focus ~ .m-border::after {
   width: 100%;
   height: 100%;
+}
+.message:focus ~ .m-border::before {
   border-top: 3px solid #555;
   border-right: 3px solid #555;
   transition: width var(--border-time) ease, 
@@ -634,8 +713,6 @@ main {
               border-width 0.01s ease;
 }
 .message:focus ~ .m-border::after {
-  width: 100%;
-  height: 100%;
   border-bottom: 3px solid #555;
   border-left: 3px solid #555;
   transition: width var(--border-time) ease calc((var(--border-time)) * 2), 
@@ -644,14 +721,6 @@ main {
 }
 
 
-
-
-
-
-
-.contact-form textarea:focus .contact-form textarea::after{
-
-}
 
 .submit {
   cursor: pointer;
