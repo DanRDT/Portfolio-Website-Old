@@ -23,8 +23,9 @@ Table of Contents
       Background Shapes
 
     Section 3
-      Subtitle
+      Heading
       Contact Info
+      Mail Icon
       Contact Form
         Contact Labels
         Contact Inputs
@@ -419,7 +420,7 @@ main {
 }
 
 
-/* Subtitle */
+/* Heading */
 .subheading {
   font-size: 3rem;
   padding: 10% 45% 0 0;
@@ -501,12 +502,15 @@ main {
   gap: 3rem;
 }
 
+
+/* Mail Icon */
 .contact-form-button {
   position: relative;
   margin: 4rem 5rem 2.5rem 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 .button-border {
   padding: 0.7rem;
@@ -514,10 +518,27 @@ main {
   border-radius: 50px;
   cursor: pointer;
   background-color: transparent;
-  transition: background-color 0.1s;
+  transition: background-color 0.1s, padding 0.6s cubic-bezier(.42,.38,.34,1.34), opacity 1s;
+}
+.button-border::after {
+  position: absolute;
+  top: 2rem;
+  left: 6rem;
+  font-size: 1.5rem;
+  content: 'Message Me';
+  color: transparent;
+  background-image: var(--complementary-linear-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 0;
 }
 .button-border:hover {
   background-color: var(--primary-color);
+  padding-right: 12rem;
+}
+.button-border:hover::after {
+  opacity: 1;
+  transition: opacity 0.3s 0.35s, transform 0.5s;
 }
 .button-border img {
   width: 4rem;
@@ -536,15 +557,15 @@ main {
 /* Contact Form */
 .contact-form-container {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   background-color: var(--primary-color);
   min-height: 45rem;
   width: 85vw;
   border-radius: 50px;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(20rem) scale(0.1, 0.15);
-  transition: opacity 0.2s linear, transform 0.4s cubic-bezier(.42,.38,.08,.74);
+  transform: translateY(20rem) scale(0.3, 0.2);
+  transition: opacity 0.2s ease-in-out, transform 0.4s cubic-bezier(.42,.38,.34,1.34);
 }
 
 .x-button {
