@@ -134,6 +134,14 @@ body {
   z-index: 10;
   width: 10rem;
   pointer-events: none;
+  opacity: 0;
+  transform: translateY(-80%) scale(0.5);
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+.logo.visible{
+  opacity: 1;
+  transform:  translateY(0) scale(1);
 }
 
 .contact-button {
@@ -150,6 +158,7 @@ body {
 }
 
 /* Gradient Border */
+.submit::before,
 .contact-button::before{
   content: "";
   position: absolute;
@@ -157,9 +166,7 @@ body {
   left: -3px;
   height: 115%;
   width: 104%;
-  transform: scale();
   border-radius: 50px; 
-  padding: 0.2rem; 
   background-image: var(--complementary-linear-gradient); 
   mask: 
      linear-gradient(#fff 0 0) content-box, 
@@ -171,8 +178,10 @@ body {
           mask-composite: exclude; 
   pointer-events: none;
 }
-
-.contact-bg {
+.contact-button::before{
+  padding: 0.2rem;
+}
+.button-bg {
   position: absolute;
   top: -0.2rem;
   left: -0.1rem;
@@ -183,7 +192,8 @@ body {
   background-image: var(--complementary-linear-gradient);
   transform: translateY(1rem) scale(0.95, 0.2);
 }
-.contact-button:hover .contact-bg{
+.submit:hover .button-bg,
+.contact-button:hover .button-bg{
   opacity: 1;
   transform: translateY(0) scale(1);
   transition: opacity 0.2s linear, transform 0.15s;
@@ -425,6 +435,7 @@ main {
   font-size: 3rem;
   padding: 10% 45% 0 0;
   text-align: center;
+  transform: rotate(-1deg);
 }
 .subheading span {
   color: transparent;
@@ -564,7 +575,7 @@ main {
   border-radius: 50px;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(20rem) scale(0.3, 0.2);
+  transform: translateY(18.1rem) scale(0.3, 0.2);
   transition: opacity 0.2s ease-in-out, transform 0.4s cubic-bezier(.42,.38,.34,1.34);
 }
 
@@ -632,6 +643,7 @@ main {
 
 /* Contact Labels */
 .contact-form {
+  --border-color: #555;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -670,7 +682,7 @@ main {
   background-size: 20% 2px;
 }
 .contact-form input:focus {
-  background-image: linear-gradient(#555, #555);
+  background-image: linear-gradient(var(--border-color), var(--border-color));
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100% 2px;
@@ -701,8 +713,8 @@ main {
 .m-border::before {
   top: 0;
   left: 0;
-  border-top: 0px solid #555;
-  border-right: 0px solid #555;
+  border-top: 0px solid var(--border-color);
+  border-right: 0px solid var(--border-color);
   transition: width var(--border-time) ease calc((var(--border-time)) * 3), 
               height var(--border-time) ease calc((var(--border-time)) * 2), 
               border-width 0.01s ease calc((var(--border-time)) * 4); /*for small border bug */
@@ -710,8 +722,8 @@ main {
 .m-border::after {
   bottom: 0;
   right: 0;
-  border-bottom: 0px solid #555;
-  border-left: 0px solid #555;
+  border-bottom: 0px solid var(--border-color);
+  border-left: 0px solid var(--border-color);
   transition: width var(--border-time) ease calc(var(--border-time)), 
               height var(--border-time) ease, 
               border-width 0.01s ease calc((var(--border-time)) * 2); 
@@ -722,15 +734,15 @@ main {
   height: 100%;
 }
 .message:focus ~ .m-border::before {
-  border-top: 3px solid #555;
-  border-right: 3px solid #555;
+  border-top: 3px solid var(--border-color);
+  border-right: 3px solid var(--border-color);
   transition: width var(--border-time) ease, 
               height var(--border-time) ease calc(var(--border-time)), 
               border-width 0.01s ease;
 }
 .message:focus ~ .m-border::after {
-  border-bottom: 3px solid #555;
-  border-left: 3px solid #555;
+  border-bottom: 3px solid var(--border-color);
+  border-left: 3px solid var(--border-color);
   transition: width var(--border-time) ease calc((var(--border-time)) * 2), 
               height var(--border-time) ease calc((var(--border-time)) * 3), 
               border-width 0.01s ease calc((var(--border-time)) * 2);
@@ -740,14 +752,25 @@ main {
 
 .submit {
   cursor: pointer;
+  position: relative;
   font-size: 1.5rem;
   color: var(--secondary-color);
   background: transparent;
-  border: solid 0.3rem var(--complementary-color);
+  border: solid 0.2rem var(--complementary-color);
   border-radius: 50px;
   margin-top: 1.5rem;
   padding: 0.7rem 3.3rem;
 }
+.submit:hover {
+  color: var(--primary-color);
+}
+.submit::before {
+  padding: 0.3rem; 
+}
+.submit .button-bg {
+  padding: 1.6rem 6rem;
+}
+
 
 /******************************************************************************************************/
 
@@ -801,6 +824,19 @@ main {
 
 /****Media Queries*****/
 
+/* Middle Point */
+@media (max-width: 850px) {
+  body {
+    
+  }
+}
+
+/* Thin Point */
+@media (max-width: 500px) {
+  body {
+    
+  }
+}
 
 
 /******************************************************************************************************/
