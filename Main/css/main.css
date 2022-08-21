@@ -836,6 +836,16 @@ main {
   /* Header */
   
   /* Section 1 */
+  .name:nth-of-type(1) {
+    padding: calc((15%) + 7rem) 0 0 0;
+  }
+  .name:nth-of-type(2) {
+    padding-left: 11%;
+    top: -2.5rem;
+  }
+  .title {
+    font-size: max(20vw, 10rem);
+  }
   .d-logo {
     transform: scale(6);
   }
@@ -881,13 +891,22 @@ main {
  
 }
 
-/* Thin Phones */
+/* Phones */
 @media (max-width: 600px) {
   /* Header */
   
   /* Section 1 */
+  .name:nth-of-type(1) {
+    padding: calc((15%) + 6rem) 0 0 0;
+    right: 2.5rem;
+  }
+  .name:nth-of-type(2) {
+    padding-left: 11%;
+    top: -1.5rem;
+    right: 3rem;
+  }
   .title {
-    font-size: 9rem;
+    font-size: max(25vw, 8rem);
   }
   .d-logo {
     transform: scale(5);
@@ -895,6 +914,20 @@ main {
   .p-logo {
     transform: scale(5);
     right: 4rem; 
+  }
+  .subtitle {
+    font-size: max(4.5vw, 1.6rem);
+    padding: 0 0 0 28%;
+    top: -1rem;
+  }
+  .scroll-arrow {
+    top: 5rem;
+    scale: 0.9;
+  }
+  .contact-button {
+    top: 34rem;
+    right: 25%;
+    scale: 0.8;
   }
   
   /* Section 2 */
@@ -946,8 +979,43 @@ main {
     scale: 0.8;
   }
 }
+/* special case */
+@media (max-width: 520px) { 
+  .contact-button {
+    top: 31rem;
+  }
+}
 
-
+/* Thin Phones */
+@media (max-width: 400px) {
+  .name:nth-of-type(2) {
+    top: -1rem;
+  }
+  .title {
+    font-size: max(28vw, 5.8rem);
+  }
+  .d-logo {
+    transform: scale(4);
+  }
+  .p-logo {
+    transform: scale(4);
+    right: 3rem; 
+  }
+  .subtitle {
+    font-size: max(6vw, 1.1rem);
+    padding: 0 0 0 31%;
+    top: -0.5rem;
+  }
+  .scroll-arrow {
+    top: 6rem;
+    scale: 0.8;
+  }
+  .contact-button {
+    top: 27.4rem;
+    right: 20%;
+    scale: 0.7;
+  }
+}
 
 
 
