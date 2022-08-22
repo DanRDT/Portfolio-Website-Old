@@ -83,6 +83,7 @@ Table of Contents
   margin: 0;
   padding: 0;
   font-weight: 100;
+  transition: transform 0.5s, opacity 0.1s; /* default transition */
 }
 html{
   font-size: 16px;
@@ -129,14 +130,14 @@ body {
 /*Header*/
 .logo {
   position: fixed;
-  top: 0rem;
-  left: 2%;
+  top: -1rem;
+  left: -0.3rem;
   z-index: 10;
   width: 10rem;
   pointer-events: none;
   opacity: 0;
   transform: translateY(-80%) scale(0.5);
-  transition: opacity 0.3s, transform 0.2s;
+  transition: opacity 0.3s, transform 0.2s, width 0.3s;
 }
 
 .logo.visible{
@@ -191,13 +192,15 @@ body {
   z-index: -1;
   border-radius: 50px;
   background-image: var(--complementary-linear-gradient);
-  transform: translateY(1rem) scale(0.95, 0.2);
+  transform: translateY(1.5rem) scale(0.9, 0.1);
+  transition: opacity 0.1s linear, transform 0.15s;
 }
+.submit:active .button-bg,
+.contact-button:active .button-bg,
 .submit:hover .button-bg,
 .contact-button:hover .button-bg{
   opacity: 1;
   transform: translateY(0) scale(1);
-  transition: opacity 0.2s linear, transform 0.15s;
   overflow: hidden;
 }
 
@@ -348,7 +351,8 @@ main {
   text-decoration: underline solid var(--complementary-color) 0.15rem;
   cursor: pointer;
 }
-.quote > span:hover {
+.quote > span:hover,
+.quote > span:active {
   text-decoration: underline dashed var(--complementary-color) 0.1rem;
 }
 
@@ -356,6 +360,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 0.5rem 0 0.5rem;
 }
 .quote {
   font-size: 2.8rem;
@@ -513,9 +518,11 @@ main {
   transform: translate(-4rem, -1rem) scale(0.3);
   transition: transform 0.2s;
 }
-.contact-info:hover {
+.contact-info:hover,
+.contact-info:active {
   transform: scale(1.05);
 }
+.contact-info:active::after,
 .contact-info:hover::after {
   opacity: 1;
   transform: translateY(0) scale(1);
@@ -540,12 +547,12 @@ main {
   gap: 1rem;
   align-items: center;
 }
+
 .links a img {
   position: relative;
   top: 1rem;
   height: 4rem;
   scale: 1.2;
-  z-index: -1;
 }
 
 /* Mail Icon */
@@ -555,7 +562,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  z-index: 2;
 }
 .button-border {
   position: relative;
@@ -577,8 +584,10 @@ main {
   background-clip: text;
   -webkit-background-clip: text;
   opacity: 0;
+  pointer-events: none;
 }
-.button-border:hover {
+.button-border:hover,
+.button-border:active {
   background-color: var(--primary-color);
   padding-right: 12rem;
 }
@@ -645,7 +654,8 @@ main {
   transform: rotate(-45deg);
 }
 
-.x-button:hover {
+.x-button:hover,
+.x-button:active {
   transform: scale(1.1);
 }
 .x-button:hover > .line1,
@@ -796,8 +806,11 @@ main {
   border-radius: 50px;
   margin-top: 1.5rem;
   padding: 0.7rem 3.3rem;
+  transition: color 0.2s;
+
 }
-.submit:hover {
+.submit:hover,
+.submit:active {
   color: var(--primary-color);
 }
 .submit::before {
@@ -863,7 +876,10 @@ main {
 /* Square Shaped devices */
 @media (max-width: 850px) {
   /* Header */
-  
+  .logo {
+    width: clamp(7rem, 15vw, 8rem);
+    top:-0.5rem;
+  }
   /* Section 1 */
   .name:nth-of-type(1) {
     padding: calc((15%) + 7rem) 0 0 0;
@@ -923,7 +939,10 @@ main {
 /* Phones */
 @media (max-width: 600px) {
   /* Header */
-  
+  .logo {
+    width: clamp(5rem, 18vw, 7rem);
+    /* top:-0.5rem; */
+  }
   /* Section 1 */
   .name:nth-of-type(1) {
     padding: calc((15%) + 6rem) 0 0 0;
@@ -1060,9 +1079,14 @@ main {
 
 
 /* Max Height */
-@media (min-height: 1100px) {
-  body {
-    
+@media (min-height: 1400px) {
+  #section1,
+  #section2,
+  #section3 {
+    min-height: 70vh;
+  }
+  .bg-shape:nth-child(4) {
+    opacity: 0;
   }
 }
 

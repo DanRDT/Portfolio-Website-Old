@@ -28,7 +28,7 @@ const logoObserver = new IntersectionObserver(function(entries, logoObserver) {
     if(!entry.isIntersecting) {
       logo.classList.toggle('visible');
     }
-    else {
+    else if(entry.isIntersecting) {
       logo.classList.remove('visible')
     }
   })
