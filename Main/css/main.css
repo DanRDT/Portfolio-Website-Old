@@ -339,6 +339,21 @@ main {
   transform: skewY(-5deg) scaleY(105%);
 }
 
+.scroll-line-container {
+  position: absolute;
+  left: -45px;
+  width: 100%;
+  height: calc(100% + 40px);
+  display: flex;
+  justify-content: center;
+  
+}
+.scroll-line {
+  width: auto;
+  height: 100%;
+  align-self: flex-start;
+}
+
 
 /* Quotes */
 .quote > span {
@@ -903,12 +918,15 @@ main {
   .bg-shape:nth-child(4) {
     opacity: 0;
   }
+  .scroll-line-container {
+    opacity: 0;
+  }
   .quote {
     font-size: max(4.5vw, 1.7rem);
-    padding-bottom: 15rem !important;
+    padding-bottom: 10rem !important;
   }
   .quote:nth-child(2) {
-    padding-top: 35rem;
+    padding-top: 30rem;
   }
 
   /* Section 3 */

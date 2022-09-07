@@ -35,3 +35,28 @@ const logoObserver = new IntersectionObserver(function(entries, logoObserver) {
 }, options);
 
 logoObserver.observe(sectionOne);
+
+//Copy contact info
+
+
+
+// Scrolling line
+let path = document.querySelector('path')
+let pathLength = document.getTotalLength()
+ 
+path.style.strokeDasharray = pathLength + ' ' +pathLength;
+
+path.style.strokeDashoffset = pathLength;
+
+window.addEventListener('scroll', () => {
+  
+  // what % down is it
+  var scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight)
+
+  // length pto offset the dashes
+  var drawLength = pathLength * scrollPercentage;
+
+  // draw in reverse
+  path.style.strokeDashoffset = pathLength - drawLength;
+
+})
