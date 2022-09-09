@@ -17,6 +17,9 @@ document.addEventListener("click", e => {
 
 // Logo
 const sectionOne = document.querySelector("#section1");
+const sectionTwo = document.querySelector("#section2");
+const sectionThree = document.querySelector("#section3");
+
 const logo = document.querySelector(".logo");
 
 const options = {
@@ -41,20 +44,38 @@ logoObserver.observe(sectionOne);
 
 
 // Scrolling line
-let path = document.querySelector('path')
-let pathLength = document.getTotalLength()
+const path = document.querySelector('#scroll-line');
+const pathLength = path.getTotalLength();
  
 path.style.strokeDasharray = pathLength + ' ' +pathLength;
-
 path.style.strokeDashoffset = pathLength;
 
-window.addEventListener('scroll', () => {
-  
-  // what % down is it
-  var scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight)
 
-  // length pto offset the dashes
-  var drawLength = pathLength * scrollPercentage;
+window.addEventListener('scroll', () => {
+
+  let currentScrollPosition = (document.documentElement.scrollTop + document.body.scrollTop);
+  let totalHeight = (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+  
+  let sectionOneHeight = sectionOne.clientHeight;
+  let sectionThreeHeight = sectionThree.clientHeight;
+  
+  let adjustedTotalHeight = totalHeight - sectionThreeHeight;
+  let scrollPercentage = currentScrollPosition / adjustedTotalHeight;
+
+
+  // wait for section2 to appear                        
+  let scrollPercentOffset =  (sectionOneHeight/2.5) / adjustedTotalHeight;
+  
+
+  //calculate amount to draw
+  let offsetPercentage = (scrollPercentage - scrollPercentOffset);
+  
+  if(offsetPercentage > 1) {
+    offsetPercentage = 1;  // Max out SVG
+  }
+
+  let drawLength = pathLength * offsetPercentage;
+
 
   // draw in reverse
   path.style.strokeDashoffset = pathLength - drawLength;

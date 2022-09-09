@@ -341,7 +341,7 @@ main {
 
 .scroll-line-container {
   position: absolute;
-  left: -45px;
+  top: 15px;
   width: 100%;
   height: calc(100% + 40px);
   display: flex;
