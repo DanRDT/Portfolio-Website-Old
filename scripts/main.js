@@ -39,17 +39,22 @@ const logoObserver = new IntersectionObserver(function(entries, logoObserver) {
 
 logoObserver.observe(sectionOne);
 
-//Copy contact info
-
 
 
 // Scrolling line
-const path = document.querySelector('#scroll-line');
-const pathLength = path.getTotalLength();
- 
-path.style.strokeDasharray = pathLength + ' ' +pathLength;
-path.style.strokeDashoffset = pathLength;
+const scrollLinePath = document.querySelector('#scroll-line');
+const scrollLinePathLength = scrollLinePath.getTotalLength();
 
+scrollLinePath.style.strokeDasharray = scrollLinePathLength + ' ' +scrollLinePathLength;
+scrollLinePath.style.strokeDashoffset = scrollLinePathLength;
+
+//Mobile
+const mobileScrollLinePath = document.querySelector('#scroll-line-mobile');
+const mobileScrollLinePathLength = mobileScrollLinePath.getTotalLength();
+
+mobileScrollLinePath.style.strokeDasharray = mobileScrollLinePathLength + ' ' +mobileScrollLinePathLength;
+mobileScrollLinePath.style.strokeDashoffset = mobileScrollLinePathLength;
+ 
 
 window.addEventListener('scroll', () => {
 
@@ -74,11 +79,15 @@ window.addEventListener('scroll', () => {
     offsetPercentage = 1;  // Max out SVG
   }
 
-  let drawLength = pathLength * offsetPercentage;
+  let drawLength = scrollLinePathLength * offsetPercentage;
 
 
   // draw in reverse
-  path.style.strokeDashoffset = pathLength - drawLength;
+  scrollLinePath.style.strokeDashoffset = scrollLinePathLength - drawLength;
+  
+  //Mobile stroke
+  drawLength = mobileScrollLinePathLength * offsetPercentage;
+  mobileScrollLinePath.style.strokeDashoffset = mobileScrollLinePathLength - drawLength;
 
 })
 
@@ -90,5 +99,5 @@ document.addEventListener('click', e => {
   const isCopyButton = e.target.matches("[copy-info]");
   if (!isCopyButton) return;
   navigator.clipboard.writeText(e.target.dataset.info);
-  
+
 })

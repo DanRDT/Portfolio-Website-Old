@@ -19,6 +19,7 @@ Table of Contents
 
     Section 2
       Skew
+      Scroll Line
       Quotes
       Background Shapes
 
@@ -339,6 +340,8 @@ main {
   transform: skewY(-5deg) scaleY(105%);
 }
 
+
+/* Scroll Line */
 .scroll-line-container {
   position: absolute;
   top: 15px;
@@ -346,14 +349,22 @@ main {
   height: calc(100% + 40px);
   display: flex;
   justify-content: center;
-  
 }
 .scroll-line {
   width: auto;
   height: 100%;
   align-self: flex-start;
+  flex-shrink: 0;
 }
-
+#scroll-line-mobile {
+  opacity: 0;
+  
+}
+.scroll-line-container:nth-child(3) {
+  top:-15px;
+  transform: scaleX(0.9);
+  rotate: 180deg;
+}
 
 /* Quotes */
 .quote > span {
@@ -915,18 +926,30 @@ main {
   }
 
   /* Section 2 */
+  .bg-shape:nth-child(2) {
+    top: 40rem;
+  }
   .bg-shape:nth-child(4) {
     opacity: 0;
   }
-  .scroll-line-container {
+  .bg-shape:nth-child(5) {
+    left: 4rem;
+  }
+  #scroll-line {
     opacity: 0;
   }
-  .quote {
+  #scroll-line-mobile {
+    opacity: 1;
+  }
+  .quote:nth-child(1) {
     font-size: max(4.5vw, 1.7rem);
-    padding-bottom: 10rem !important;
+    padding-bottom: 10rem;
+    padding-top: 25rem;
   }
   .quote:nth-child(2) {
+    font-size: max(4.5vw, 1.7rem);
     padding-top: 30rem;
+    bottom: 15rem;
   }
 
   /* Section 3 */
@@ -1000,7 +1023,9 @@ main {
   .bg-shape:nth-child(3) {
     opacity: 0;
   }
-  
+  .bg-shape:nth-child(5) {
+    opacity: 0;
+  }
   /* Section 3 */
   .subheading {
     font-size: max(7vw, 1.4rem);
@@ -1021,6 +1046,18 @@ main {
   .contact-info {
     left: 0rem;
     font-size: 5vw;
+  }
+
+  .links {
+    gap: 0;
+  }
+  .links > a,
+  .links > div > button {
+    transform: scale(0.8);
+  }
+  .contact-form-button {
+    margin: 4rem 0.5rem 2rem 0.5rem;
+
   }
 
   /* Contact Form */
@@ -1077,10 +1114,13 @@ main {
     scale: 0.8;
   }
   .contact-button {
-    top: 27.4rem;
+    top: calc(10rem + 70vw);
     right: 20%;
-    /* transform: translate(-50%, -50%);     */
     scale: 0.7;
+  }
+  .scroll-line-container:nth-child(3) {
+    top:-10px;
+    transform: scaleX(0.7);
   }
 }
 
