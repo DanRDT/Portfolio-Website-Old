@@ -1,17 +1,17 @@
 // Contact Form
 document.addEventListener("click", e => { 
-  const isDropdownButton = e.target.matches("[data-dropdown-button]")
-  if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return
+  const isDropdownButton = e.target.matches("[data-dropdown-button]");
+  if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
   
-  let currentDropdown
+  let currentDropdown;
   if (isDropdownButton) {
-    currentDropdown = e.target.closest("[data-dropdown]")
-    currentDropdown.classList.toggle("active")
+    currentDropdown = e.target.closest("[data-dropdown]");
+    currentDropdown.classList.toggle("active");
   }
 
   document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
     if (dropdown === currentDropdown) return
-    dropdown.classList.remove("active")
+    dropdown.classList.remove("active");
   })
 })
 
@@ -32,7 +32,7 @@ const logoObserver = new IntersectionObserver(function(entries, logoObserver) {
       logo.classList.toggle('visible');
     }
     else if(entry.isIntersecting) {
-      logo.classList.remove('visible')
+      logo.classList.remove('visible');
     }
   })
 }, options);
@@ -80,4 +80,15 @@ window.addEventListener('scroll', () => {
   // draw in reverse
   path.style.strokeDashoffset = pathLength - drawLength;
 
+})
+
+
+
+//Clipboard Functionality
+
+document.addEventListener('click', e => {
+  const isCopyButton = e.target.matches("[copy-info]");
+  if (!isCopyButton) return;
+  navigator.clipboard.writeText(e.target.dataset.info);
+  
 })

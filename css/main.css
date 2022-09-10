@@ -1079,6 +1079,7 @@ main {
   .contact-button {
     top: 27.4rem;
     right: 20%;
+    /* transform: translate(-50%, -50%);     */
     scale: 0.7;
   }
 }
