@@ -22,8 +22,9 @@ const sectionThree = document.querySelector("#section3");
 
 const logo = document.querySelector(".logo");
 
-const offset = {
-  rootMargin: "-30%"
+const logoObserverOffset = {
+  rootMargin: "-30%",
+  threshold: 0
 };
 
 const logoObserver = new IntersectionObserver(function(entries, logoObserver) {
@@ -37,32 +38,11 @@ const logoObserver = new IntersectionObserver(function(entries, logoObserver) {
     }
   
   })
-}, offset);
+}, logoObserverOffset);
 
 logoObserver.observe(sectionOne);
 
-//logo appears first section
-const offset2 = {
-  rootMargin: "-5%"
-}
 
-const logoObserverStart = new IntersectionObserver(function(entries, logoObserver) {
-  entries.forEach(entry => {
-    let ratio = document.documentElement.clientHeight / document.documentElement.clientWidth;
-
-    if(ratio < 0.65){
-      logo.classList.remove('visible');
-    } 
-    else if(!entry.isIntersecting) {
-      logo.classList.add('visible');
-    }
-    else if(entry.isIntersecting) {
-      logo.classList.remove('visible');
-    }
-  
-  })
-}, offset2);
-logoObserverStart.observe(sectionTwo);
 
 
 
@@ -115,6 +95,24 @@ window.addEventListener('scroll', () => {
   drawLength = mobileScrollLinePathLength * offsetPercentage;
   mobileScrollLinePath.style.strokeDashoffset = mobileScrollLinePathLength - drawLength;
 
+
+
+  //logo appears first section
+  // let ratio = document.documentElement.clientHeight / document.documentElement.clientWidth;
+
+  // if(ratio < 0.65){
+  //   // logo.classList.remove('visible');
+  //   return;
+  // } 
+  // if () {
+
+  // }
+  // if(scrollPercentage < 0.2) {
+  //   logo.classList.add('visible');
+  // }
+  // else {
+  //   logo.classList.remove('visible');
+  // }
 })
 
 
@@ -132,3 +130,30 @@ document.addEventListener('click', e => {
   setTimeout(changeTextBack, 1500)
 
 })
+
+//Intersection Observer
+
+const observedItems = document.querySelectorAll("[lazy-load]");
+
+itemObserverOffset = {
+  threshold: 0,
+  rootMargin: "0px"
+};
+
+const itemObserver = new IntersectionObserver( (entries, itemObserver) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) {
+      return;
+    }
+    else if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      itemObserver.unobserve(entry.target);
+    }
+
+
+  })
+}, itemObserverOffset);
+
+observedItems.forEach(item => {
+  itemObserver.observe(item);
+});

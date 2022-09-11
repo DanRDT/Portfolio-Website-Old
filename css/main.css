@@ -33,11 +33,16 @@ Table of Contents
         Message Box
         Submit Button
 
+  Media Queries
+    Square Shaped Devices
+    Phones
+    Special Case
+    Thin Phones
+    Max Height
+  
   Animations
     Scrolling Arrows
-
-  Media Queries
-
+    Load in animation
 */
 
 /*Root*/
@@ -139,11 +144,6 @@ body {
   opacity: 0;
   transform: translateY(-80%) scale(0.5);
   transition: opacity 0.3s, transform 0.2s, width 0.3s;
-}
-
-.logo.visible{
-  opacity: 1;
-  transform:  translateY(0) scale(1);
 }
 
 .contact-button {
@@ -394,13 +394,14 @@ main {
   position: relative;
   text-align: center;
   width: fit-content;
+  opacity: 0;
 }
 .quote:nth-child(1) {
-  padding: 20% 40% 20% 0;
+  margin: 20% 40% 20% 0;
 }
 
 .quote:nth-child(2) {
-  padding: 20% 0 25% 40%;
+  margin: 20% 0 25% 40%;
 }
 
 /* Background Shapes */
@@ -469,7 +470,7 @@ main {
 .subheading {
   font-size: 3rem;
   font-size: clamp(2rem, 3vw, 3.5rem);
-  padding: 10% 45% 0 0;
+  margin: 10% 45% 0 0;
   text-align: center;
   transform: rotate(-1deg);
 }
@@ -485,7 +486,7 @@ main {
   position: relative;
   font-size: 5rem;
   font-size: clamp(4rem, 6vw, 6rem);
-  padding: 3% 0 0 0;
+  margin: 3% 0 0 0;
   text-align: center;
   width: fit-content;
 }
@@ -516,7 +517,7 @@ main {
 
 .contact-label {
   text-align: center;
-  padding-top: 3.5rem;
+  margin-top: 3.5rem;
 }
 .contact-label:nth-of-type(1) {
   grid-area: one;
@@ -527,7 +528,7 @@ main {
 
 .contact-info {
   font-family: raleway-thin;
-  padding-top: 3.5rem;
+  margin-top: 3.5rem;
   position: relative;
   left: 3rem;
   cursor: pointer;
@@ -547,7 +548,7 @@ main {
 
 .contact-info-tip {
   position: absolute;
-  top: 6rem;
+  top: 3rem;
   left: 1.5rem;
   font-size: clamp(0.8rem, 1vw, 1.4rem);
   color: lightgreen;
@@ -570,7 +571,8 @@ main {
 }
 
 .links {
-  padding-top: 10rem;
+  margin-top: 5rem;
+  padding-top: 5rem;
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -849,53 +851,9 @@ main {
 }
 
 
-/******************************************************************************************************/
-
-/*Animations*/
-
-/* Scrolling Arrows */
-@keyframes top-arrow {
-  0%{
-    transform: translateY(-30px); /* used for pause */
-    opacity: 0;
-  }
-  30%{
-    transform: translateY(-30px);
-    opacity: 0;
-  }
-  100%{
-    transform: translateY(155px);
-    opacity: 1;
-  }
-}
-@keyframes middle-arrows {
-  0%{
-    transform: translateY(18px); /* used for pause */
-  }
-  45%{
-    transform: translateY(18px);
-  }
-  100%{
-    transform: translateY(155px);
-  }
-}
-@keyframes bottom-arrow {
-  0%{
-    transform: translateY(13px); /* used for pause */
-    opacity: 1;
-  }
-  50%{
-    transform: translateY(13px);
-    opacity: 1;
-  }
-  100%{
-    transform: translateY(175px);
-    opacity: 0;
-  }
-}
-
 
 /******************************************************************************************************/
+
 
 /****Media Queries*****/
 
@@ -922,7 +880,7 @@ main {
   }
   .p-logo {
     transform: scale(6) rotate(180deg);
-    right: 4.5rem; 
+        right: 4.5rem; 
   }
 
   /* Section 2 */
@@ -943,18 +901,18 @@ main {
   }
   .quote:nth-child(1) {
     font-size: max(4.5vw, 1.7rem);
-    padding-bottom: 10rem;
-    padding-top: 25rem;
+    margin-bottom: 10rem;
+    margin-top: 25rem;
   }
   .quote:nth-child(2) {
     font-size: max(4.5vw, 1.7rem);
-    padding-top: 30rem;
+    margin-top: 30rem;
     bottom: 15rem;
   }
 
   /* Section 3 */
   .subheading {
-    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
   }
 
   /* Contact Info */
@@ -967,12 +925,11 @@ main {
     left: 2rem;
   }
   .contact-info {
-    padding-top: 3.5rem;
+    margin-top: 3.5rem;
     left: 2rem;
   }
 
 }
-
 /* Phones */
 @media (max-width: 600px) {
   /* Header */
@@ -1025,7 +982,7 @@ main {
   /* Section 3 */
   .subheading {
     font-size: max(7vw, 1.4rem);
-    padding-top: 4rem;
+    margin-top: 4rem;
   }
   .heading {
     font-size: max(2.5rem, 13vw);
@@ -1037,7 +994,7 @@ main {
   }
   .contact-label:nth-child(2) {
     width: 20px;
-    padding-left: 27%;
+    margin-left: 27%;
   }
   .contact-info {
     left: 0rem;
@@ -1078,7 +1035,7 @@ main {
     scale: 0.8;
   }
 }
-/* special case */
+/* Special Case */
 @media (max-width: 520px) { 
   .contact-button {
     top: 31rem;
@@ -1133,4 +1090,60 @@ main {
   }
 }
 
+/******************************************************************************************************/
+
+/*Animations*/
+    
+    /* Scrolling Arrows */
+    @keyframes top-arrow {
+      0%{
+        transform: translateY(-30px); /* used for pause */
+        opacity: 0;
+      }
+      30%{
+        transform: translateY(-30px);
+        opacity: 0;
+      }
+      100%{
+        transform: translateY(155px);
+        opacity: 1;
+      }
+    }
+    @keyframes middle-arrows {
+      0%{
+        transform: translateY(18px); /* used for pause */
+      }
+      45%{
+        transform: translateY(18px);
+      }
+      100%{
+        transform: translateY(155px);
+      }
+    }
+    @keyframes bottom-arrow {
+      0%{
+        transform: translateY(13px); /* used for pause */
+        opacity: 1;
+      }
+      50%{
+        transform: translateY(13px);
+        opacity: 1;
+      }
+      100%{
+        transform: translateY(175px);
+        opacity: 0;
+      }
+    }
+    
+    /* Load in animation */
+    [lazy-load] {
+      opacity: 0;
+      transform: translateY(200px);
+      transition: opacity 4s transform 2s;
+    }
+    .visible{
+      opacity: 1;
+      transform:  translate(0) scale(1);
+    }
+    
 /******************************************************************************************************/
