@@ -259,10 +259,10 @@ main {
   top: -2.5rem;
 }
 .p-logo {
-  transform: scale(7);
+  transform: rotate(180deg) scale(7);
   position: relative;
-  right: 6.5rem;
-  bottom: -1rem;
+  right: 5.5rem;
+  bottom: -2.5rem;
   margin-left: 5rem;
 }
 
@@ -921,8 +921,8 @@ main {
     transform: scale(6);
   }
   .p-logo {
-    transform: scale(6);
-    right: 5.5rem; 
+    transform: scale(6) rotate(180deg);
+    right: 4.5rem; 
   }
 
   /* Section 2 */
@@ -1001,8 +1001,8 @@ main {
     transform: scale(5);
   }
   .p-logo {
-    transform: scale(5);
-    right: 4rem; 
+    transform: scale(5) rotate(180deg);
+    right: 3.5rem; 
   }
   .subtitle {
     font-size: max(4.5vw, 1.6rem);
@@ -1101,8 +1101,8 @@ main {
     transform: scale(4);
   }
   .p-logo {
-    transform: scale(4);
-    right: 3rem; 
+    transform: scale(4) rotate(180deg);
+    right: 2.5rem; 
   }
   .subtitle {
     font-size: max(6vw, 1.1rem);
