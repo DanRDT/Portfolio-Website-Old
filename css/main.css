@@ -533,8 +533,19 @@ main {
   cursor: pointer;
   transition: transform 0.2s;
 }
-.contact-info::after {
-  content: ' - Copy to Clipboard';
+.contact-info:hover,
+.contact-info:active {
+  transform: scale(1.05);
+}
+.contact-info:nth-of-type(4) {
+  grid-area: three;
+}
+.contact-info:nth-of-type(5) {
+  grid-area: four;
+}
+
+
+.contact-info-tip {
   position: absolute;
   top: 6rem;
   left: 1.5rem;
@@ -544,20 +555,11 @@ main {
   transform: translate(-4rem, -1rem) scale(0.3);
   transition: transform 0.2s;
 }
-.contact-info:hover,
-.contact-info:active {
-  transform: scale(1.05);
-}
-.contact-info:active::after,
-.contact-info:hover::after {
+
+.contact-info:active .contact-info-tip,
+.contact-info:hover .contact-info-tip {
   opacity: 1;
   transform: translateY(0) scale(1);
-}
-.contact-info:nth-of-type(4) {
-  grid-area: three;
-}
-.contact-info:nth-of-type(5) {
-  grid-area: four;
 }
 
 .seperator {
@@ -893,8 +895,6 @@ main {
 }
 
 
-
-
 /******************************************************************************************************/
 
 /****Media Queries*****/
@@ -971,10 +971,6 @@ main {
     left: 2rem;
   }
 
-
-
-  /* Contact Form */
- 
 }
 
 /* Phones */
@@ -1123,18 +1119,6 @@ main {
     transform: scaleX(0.7);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Max Height */

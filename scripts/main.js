@@ -22,22 +22,48 @@ const sectionThree = document.querySelector("#section3");
 
 const logo = document.querySelector(".logo");
 
-const options = {
+const offset = {
   rootMargin: "-30%"
 };
 
 const logoObserver = new IntersectionObserver(function(entries, logoObserver) {
   entries.forEach(entry => {
+
     if(!entry.isIntersecting) {
       logo.classList.toggle('visible');
     }
     else if(entry.isIntersecting) {
       logo.classList.remove('visible');
     }
+  
   })
-}, options);
+}, offset);
 
 logoObserver.observe(sectionOne);
+
+//logo appears first section
+const offset2 = {
+  rootMargin: "-5%"
+}
+
+const logoObserverStart = new IntersectionObserver(function(entries, logoObserver) {
+  entries.forEach(entry => {
+    let ratio = document.documentElement.clientHeight / document.documentElement.clientWidth;
+
+    if(ratio < 0.65){
+      logo.classList.remove('visible');
+    } 
+    else if(!entry.isIntersecting) {
+      logo.classList.add('visible');
+    }
+    else if(entry.isIntersecting) {
+      logo.classList.remove('visible');
+    }
+  
+  })
+}, offset2);
+logoObserverStart.observe(sectionTwo);
+
 
 
 
@@ -69,7 +95,7 @@ window.addEventListener('scroll', () => {
 
 
   // wait for section2 to appear                        
-  let scrollPercentOffset =  (sectionOneHeight/2.5) / adjustedTotalHeight;
+  let scrollPercentOffset =  (sectionOneHeight/2.3) / adjustedTotalHeight;
   
 
   //calculate amount to draw
@@ -99,5 +125,10 @@ document.addEventListener('click', e => {
   const isCopyButton = e.target.matches("[copy-info]");
   if (!isCopyButton) return;
   navigator.clipboard.writeText(e.target.dataset.info);
+  
+  //change text to copied
+  e.target.children[0].innerText = ' - Copied';
+  function changeTextBack() {e.target.children[0].innerText = ' - Copy to ClipBoard';}
+  setTimeout(changeTextBack, 1500)
 
 })
