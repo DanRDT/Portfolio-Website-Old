@@ -96,7 +96,7 @@ html{
   scrollbar-color: var(--complementary-color) var(--background-color); /*#8f75ee */
   scrollbar-width: thin;
   scroll-behavior: smooth;
-  scroll-padding-top: 120px;
+  /* scroll-padding-top: 120px; */
 }
 img {
   width: 4rem;
@@ -210,7 +210,7 @@ body {
   z-index: 10;
   position: fixed;
   top: 50%;
-  right: 2.5rem;
+  right: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -243,6 +243,22 @@ body {
   opacity: 1;
   transform: translate(0, -50%);
 }
+
+.scrollbar-inner-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.4rem;
+  margin: 0.1rem;
+  border-radius: 51%;
+  background: var(--complementary-linear-gradient);
+  opacity: 0;
+  transition: opacity 0s;
+}
+.scrollbar-circle.currentSec .scrollbar-inner-circle {
+  opacity: 1;
+}
+
 
 
 /******************************************************************************************************/
@@ -439,7 +455,7 @@ main {
 }
 
 .quote:nth-child(2) {
-  margin: 20% 0 25% 40%;
+  margin: 20% 6% 25% 35%;
 }
 
 /* Background Shapes */
@@ -902,6 +918,9 @@ main {
     width: clamp(7rem, 15vw, 8rem);
     top:-0.5rem;
   }
+  #scrollbar {
+    scale: 0.8;
+  }
   /* Section 1 */
   .name:nth-of-type(1) {
     padding: calc((15%) + 7rem) 0 0 0;
@@ -974,6 +993,13 @@ main {
   .logo {
     width: clamp(5rem, 18vw, 7rem);
     /* top:-0.5rem; */
+  }
+  #scrollbar {
+    gap: 1.25rem;
+    right: 0.5rem;
+  }
+  .scrollbar-circle.currentSec .scrollbar-activeLine {
+    opacity: 0;
   }
   /* Section 1 */
   .name:nth-of-type(1) {
@@ -1082,6 +1108,9 @@ main {
 
 /* Thin Phones */
 @media (max-width: 400px) {
+  #scrollbar {
+    opacity: 0;
+  }
   .name:nth-of-type(2) {
     top: -1rem;
   }
