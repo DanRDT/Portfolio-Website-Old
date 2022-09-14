@@ -157,3 +157,24 @@ const itemObserver = new IntersectionObserver( (entries, itemObserver) => {
 observedItems.forEach(item => {
   itemObserver.observe(item);
 });
+
+
+//scroll bar
+
+const scrollbarCircles = document.querySelectorAll("[lazy-load]");
+
+scrollbarObserverOffset = {
+  
+};
+
+const scrollbarObserver = new IntersectionObserver( (entries, scrollbarObserver) => {
+  entries.forEach(entry => {
+    
+
+
+  })
+}, scrollbarObserverOffset);
+
+observedItems.forEach(item => {
+  scrollbarObserver.observe(item);
+});

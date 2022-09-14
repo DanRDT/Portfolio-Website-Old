@@ -48,7 +48,7 @@ Table of Contents
 /*Root*/
 :root {
   --background-color: hwb(0 11.5% 88.5%);
-  --background-color2: #181818;
+  --background-color-darker: #181818;
   --primary-color: #fff;
   --secondary-color: #000;
   --complementary-color: #F87D37;
@@ -205,6 +205,44 @@ body {
   overflow: hidden;
 }
 
+/* Scrollbar */
+#scrollbar {
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  right: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transform: translateY(-60%);
+}
+
+.scrollbar-circle.currentSec {
+  padding: 0.5rem;
+  border-radius: 50px;
+  border: var(--primary-color) solid 0.3rem;
+  background: transparent;
+  transform: scale(1.25)
+}
+.scrollbar-circle {
+  padding: 0.75rem;
+  border-radius: 50px;
+  background: var(--primary-color);
+  transform: scale(1);
+}
+.scrollbar-activeLine {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  padding: 0.15rem 0.9rem;
+  transform: translate(0.4rem, -50%);
+  background: var(--primary-color);
+  opacity: 0;
+}
+.scrollbar-circle.currentSec .scrollbar-activeLine {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
 
 
 /******************************************************************************************************/
@@ -324,7 +362,7 @@ main {
 .skewleft {
   position: absolute;
   top: 0; 
-  background-color: var(--background-color2);
+  background-color: var(--background-color-darker);
   height: 100%;
   z-index: 100;
 }
