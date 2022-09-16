@@ -905,6 +905,34 @@ main {
 }
 
 
+/* Message Sent */
+#message-sent,
+#return {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0s, background 0.3s;
+}
+
+#message-sent {
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(4rem, 8vw, 7rem);
+}
+#return {
+  bottom: 10%;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border: 2px solid var(--complementary-color);
+  border-radius: 50px;
+}
+#return:hover, 
+#return:active {
+  background-color: var(--complementary-color);
+}
+
 
 /******************************************************************************************************/
 
