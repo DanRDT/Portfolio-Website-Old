@@ -146,7 +146,8 @@
                 <button class="button-border" data-dropdown-button>
                   <img src="../imgFiles/shapes/mail-icon.svg" alt="mail-icon" data-dropdown-button>
                 </button>
-                <div class="contact-form-container" >
+
+                <form class="contact-form-container" action="https://formsubmit.co/a250159dc13f1e2224f6dd1888a2bdb3" method="POST">
                   <div class="contact-bg-shapes">
                     <img src="../imgFiles/shapes/zigzag.svg" alt="zigzag">
                     <img src="../imgFiles/shapes/special-triangle.svg" alt="special-triangle">
@@ -160,20 +161,21 @@
                   <div class="contact-form">
                     <h1>Send me a <span>quick</span><br>message</h1>
                     <h2>Name</h2>
-                    <input type="text" name="name" placeholder="...">
+                    <input type="text" name="name" placeholder="..." required>
                     <h2>Email</h2>
-                    <input type="email" name="email" placeholder="...">
+                    <input type="email" name="email" placeholder="..." required>
                     <h2>Message</h2>
                     <div class="message-container">
-                      <textarea class="message" name="message" rows="5"  placeholder="..."></textarea>
+                      <textarea class="message" name="message" rows="5"  placeholder="..." required></textarea>
                       <div class="m-border"></div>
                     </div>
-                    <div class="submit">Submit
+                    <button type="submit" class="submit">Submit
                       <div class="button-bg"></div>
-                    </div>
+                    </button>
                     
                   </div>
-                </div>
+                </form>
+
               </div>
             <a href="https://www.linkedin.com/in/daniel-pulber-1095a3248/">
               <img src="../imgFiles/logos/linkedin-logo.png" alt="LinkedIn">
