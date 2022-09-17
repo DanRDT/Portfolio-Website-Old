@@ -209,15 +209,16 @@ document.querySelectorAll('a').forEach(anchor => {
 
 
 // Contact form
-
-const contactForm = document.querySelector("#contact-form-button");
+const contactFormButton = document.querySelector("#contact-form-button");
 const contactFormInputs = document.querySelectorAll(".contact-from-input");
 const re = /[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?/;
 
 
-contactForm.addEventListener('click', e => {
+contactFormButton.addEventListener('click', e => {
   e.preventDefault();
   let isFormValid = null;
+
+  // Validate input
   contactFormInputs.forEach((input, index) => {
     
     
@@ -228,29 +229,29 @@ contactForm.addEventListener('click', e => {
     
     if (isFilled) {
       if (index === 2) {
-        input.parentElement.previousElementSibling.classList.remove("no-input")
+        input.parentElement.nextElementSibling.classList.remove("no-input")
       }
       else {
-        input.previousElementSibling.classList.remove("no-input")
+        input.nextElementSibling.classList.remove("no-input")
       }
     }
 
     else if (!isFilled) {
       if (index === 2) {
-        input.parentElement.previousElementSibling.classList.add("no-input")
+        input.parentElement.nextElementSibling.classList.add("no-input")
       }
       else {
-        input.previousElementSibling.classList.add("no-input")
+        input.nextElementSibling.classList.add("no-input")
       }
     }
 
     if (index === 1) {
       isValid = re.test(input.value);
       if (!isValid && isFilled) {
-        input.previousElementSibling.classList.add("invalid-input")
+        input.nextElementSibling.classList.add("invalid-input")
       }
       else {
-        input.previousElementSibling.classList.remove("invalid-input")
+        input.nextElementSibling.classList.remove("invalid-input")
       }
     }
 
@@ -263,10 +264,36 @@ contactForm.addEventListener('click', e => {
   })
   
 
+  // Remove popups after 5 seconds
+  if (!isFormValid) {
+    setTimeout(() => {contactFormInputs.forEach((input, index) => {
+      if (index === 2) {
+        input.parentElement.nextElementSibling.classList.remove("no-input")
+      }
+      else {
+        input.nextElementSibling.classList.remove("no-input")
+      }
+      if (index === 1) {
+        input.nextElementSibling.classList.remove("invalid-input")
+      }
+    })}, 5000)
+  }
+  
+
+
+  const contactFormButtonLoading = document.querySelector(".loading-animation")
+  const contactFormSuccessMessage = document.querySelector(".contact-form-submit-message")
+  
+  // if form is valid then send input
   if (isFormValid) {
+
+    contactFormButton.classList.add("active-loading")
+    contactFormButtonLoading.classList.add("active-loading")
+
     const inputName = contactFormInputs[0].value
     const inputEmail = contactFormInputs[1].value
     const inputMessage = contactFormInputs[2].value
+
     fetch("https://formsubmit.co/ajax/a250159dc13f1e2224f6dd1888a2bdb3", {
       method: "POST",
       headers: { 
@@ -280,8 +307,34 @@ contactForm.addEventListener('click', e => {
       })
     })
     .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error));
+    
+    .then(data => {
+      console.log(data)
+      contactFormButton.classList.remove("active-loading")
+      contactFormButtonLoading.classList.remove("active-loading")
+
+      if (data.success === "true") {
+        contactFormSuccessMessage.classList.add('successful-send')
+      }
+      else{
+        contactFormSuccessMessage.classList.add('unsuccessful-send')
+      }
+
+      setTimeout(() => {
+        contactFormSuccessMessage.classList.remove('successful-send')
+      }, 5000)
+    })
+    .catch(error => {
+      console.log(error)
+      contactFormButton.classList.remove("active-loading")
+      contactFormButtonLoading.classList.remove("active-loading")
+      contactFormSuccessMessage.classList.add('unsuccessful-send')
+
+      setTimeout(() => {
+        contactFormSuccessMessage.classList.remove('unsuccessful-send')
+      }, 5000)
+    });
+
   }
 
 

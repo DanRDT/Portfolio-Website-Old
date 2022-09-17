@@ -146,13 +146,12 @@
                 <button class="button-border" data-dropdown-button>
                   <img src="../imgFiles/shapes/mail-icon.svg" alt="mail-icon" data-dropdown-button>
                 </button>
-<!-- action="https://formsubmit.co/a250159dc13f1e2224f6dd1888a2bdb3"  -->
-                <form class="contact-form-container" method="POST"> 
-                  <input type="hidden" name="_subject" value="Portfolio Website Email">
-                  <input type="text" name="_honey" style="display:none">
-                  <input type="hidden" name="_captcha" value="false">
-                  <input type="hidden" name="_template" value="box">
-                  <input type="hidden" name="_next" value="https://pulberdev.netlify.app/pages/sentMessage.html">
+                <form class="contact-form-container"> 
+                  <!-- <input type="hidden" name="_subject" value="Portfolio Website Email"> -->
+                  <!-- <input type="text" name="_honey" style="display:none"> -->
+                  <!-- <input type="hidden" name="_captcha" value="false"> -->
+                  <!-- <input type="hidden" name="_template" value="box"> -->
+                  <!-- <input type="hidden" name="_next" value="https://pulberdev.netlify.app/pages/sentMessage.html"> -->
                   <div class="contact-bg-shapes">
                     <img src="../imgFiles/shapes/zigzag.svg" alt="zigzag">
                     <img src="../imgFiles/shapes/special-triangle.svg" alt="special-triangle">
@@ -166,19 +165,21 @@
                   <div class="contact-form">
                     <h1>Send me a <span>quick</span><br>message</h1>
                     <h2>Name</h2>
-                    <p class="input-validation"></p>
                     <input class="contact-from-input" type="text" name="name" placeholder="..." required>
+                    <p class="input-validation"></p>
                     <h2 >Email</h2>
-                    <p class="input-validation"></p>
                     <input class="contact-from-input" type="email" name="email" placeholder="..." pattern="[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?" required>
-                    <h2>Message</h2>
                     <p class="input-validation"></p>
+                    <h2>Message</h2>
                     <div class="message-container">
                       <textarea class="message contact-from-input" name="message" rows="5"  placeholder="..." required></textarea>
                       <div class="m-border"></div>
                     </div>
+                    <p class="input-validation"></p>
                     <button id="contact-form-button" type="submit" class="submit">Submit
                       <div class="button-bg"></div>
+                      <div class="loading-animation"></div>
+                      <div class="contact-form-submit-message"></div>
                     </button>
                     
                   </div>

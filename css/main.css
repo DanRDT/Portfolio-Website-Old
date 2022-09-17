@@ -710,6 +710,7 @@ main {
 
 .x-button {
   position: absolute;
+  z-index: 5;
   top: 2.5rem;
   left: 3.5rem;
   padding: 1.5rem;
@@ -819,13 +820,7 @@ main {
   background-size: 100% 2px;
   transition: background-size 0.3s ease;
 }
-.contact-form input:has(:invalid) {
-  background-image: linear-gradient(red, red);
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: 100% 2px;
-  transition: background-size 0.3s ease;
-}
+
 
 
 /* Message Box */
@@ -903,15 +898,15 @@ main {
 
 .input-validation.invalid-input::after,
 .input-validation.no-input::after {
+  text-align: center;
   font-size: 1rem;
   padding: 0.5rem 1.25rem;
   background-color: var(--border-color);
   border-radius: 10px;
   pointer-events: none;
   position: absolute;
-  bottom: 0.2rem;
-  /* transform: translateY(0); */
-  /* transition: transform 0.2s; */
+  top: 0.2rem;
+  z-index: 3;
 }
 
 
@@ -926,7 +921,9 @@ main {
   margin-top: 1.5rem;
   padding: 0.7rem 3.3rem;
   transition: color 0.2s;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .submit:hover,
 .submit:active {
@@ -938,7 +935,45 @@ main {
 .submit .button-bg {
   padding: 1.7rem 6rem;
 }
+.loading-animation {
+  position: absolute;
+  padding: 0.75rem;
+  border-radius: 50px;
+  border: 0.35rem solid transparent;
+  border-top: 0.35rem solid var(--secondary-color);
+  border-bottom: 0.35rem solid var(--secondary-color);
+  opacity: 0;
+}
+.submit:hover .loading-animation {
+  border: 0.35rem solid transparent;
+  border-top: 0.35rem solid var(--primary-color);
+  border-bottom: 0.35rem solid var(--primary-color);
+}
 
+.submit.active-loading {
+  color: transparent;
+}
+.loading-animation.active-loading {
+  opacity: 1;
+  animation: loading-submit 1.3s linear infinite;
+}
+
+.contact-form-submit-message {
+  position: absolute;
+  color: transparent;
+  bottom: calc(-100% - 10px);
+  width: max-content;
+}
+.contact-form-submit-message.successful-send::after {
+  content: "Sent Successfully";
+  color: rgb(90, 223, 90);
+
+}
+.contact-form-submit-message.unsuccessful-send::after {
+  white-space: pre;
+  content: "Error...\aSomething Went Wrong";
+  color: orangered;
+}
 
 /* Message Sent */
 #message-sent,
@@ -1265,6 +1300,18 @@ main {
       }
     }
     
+    /* Loading Submit Button */
+    @keyframes loading-submit {
+      /* 0%{
+        transform: rotate(0deg);
+      } */
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+
+
+
     /* Load in animation */
     [lazy-load] {
       opacity: 0;
