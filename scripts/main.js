@@ -210,19 +210,80 @@ document.querySelectorAll('a').forEach(anchor => {
 
 // Contact form
 
+const contactForm = document.querySelector("#contact-form-button");
+const contactFormInputs = document.querySelectorAll(".contact-from-input");
+const re = /[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?/;
 
-// https://github.com/github/fetch
-// fetch("https://formsubmit.co/ajax/your@email.com", {
-//     method: "POST",
-//     headers: { 
-//         'Content-Type': 'application/json',
-//         'Accept': 'application/json'
-//     },
-//     body: JSON.stringify({
-//         name: "FormSubmit",
-//         message: "I'm from Devro LABS"
-//     })
-// })
-//     .then(response => response.json())
-//     .then(data => console.log(data))
-//     .catch(error => console.log(error));
+
+contactForm.addEventListener('click', e => {
+  e.preventDefault();
+  let isFormValid = null;
+  contactFormInputs.forEach((input, index) => {
+    
+    
+    
+    const isFilled = input.value !== "";
+    let isValid = true;
+    
+    
+    if (isFilled) {
+      if (index === 2) {
+        input.parentElement.previousElementSibling.classList.remove("no-input")
+      }
+      else {
+        input.previousElementSibling.classList.remove("no-input")
+      }
+    }
+
+    else if (!isFilled) {
+      if (index === 2) {
+        input.parentElement.previousElementSibling.classList.add("no-input")
+      }
+      else {
+        input.previousElementSibling.classList.add("no-input")
+      }
+    }
+
+    if (index === 1) {
+      isValid = re.test(input.value);
+      if (!isValid && isFilled) {
+        input.previousElementSibling.classList.add("invalid-input")
+      }
+      else {
+        input.previousElementSibling.classList.remove("invalid-input")
+      }
+    }
+
+    if (isFilled && isValid && isFormValid !== false) {
+      isFormValid = true;
+    }
+    else {
+      isFormValid = false;
+    }
+  })
+  
+
+  if (isFormValid) {
+    const inputName = contactFormInputs[0].value
+    const inputEmail = contactFormInputs[1].value
+    const inputMessage = contactFormInputs[2].value
+    fetch("https://formsubmit.co/ajax/a250159dc13f1e2224f6dd1888a2bdb3", {
+      method: "POST",
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: inputName,
+        email: inputEmail,
+        message: inputMessage
+      })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
+  }
+
+
+  
+})

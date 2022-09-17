@@ -193,7 +193,7 @@ body {
   z-index: -1;
   border-radius: 50px;
   background-image: var(--complementary-linear-gradient);
-  transform: translateY(1.5rem) scale(0.9, 0.1);
+  transform: translateY(1.4rem) scale(0.9, 0.2);
   transition: opacity 0.1s linear, transform 0.15s;
 }
 .submit:active .button-bg,
@@ -777,6 +777,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 .contact-form h1 {
   color: var(--secondary-color);
@@ -813,6 +814,13 @@ main {
 }
 .contact-form input:focus {
   background-image: linear-gradient(var(--border-color), var(--border-color));
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 2px;
+  transition: background-size 0.3s ease;
+}
+.contact-form input:has(:invalid) {
+  background-image: linear-gradient(red, red);
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100% 2px;
@@ -878,6 +886,33 @@ main {
               border-width 0.01s ease calc((var(--border-time)) * 2);
 }
 
+
+.input-validation {
+  position: relative;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-validation.no-input::after {
+  content: "Please fill out this field";
+}
+.input-validation.invalid-input::after {
+  content: "Invalid input";
+}
+
+.input-validation.invalid-input::after,
+.input-validation.no-input::after {
+  font-size: 1rem;
+  padding: 0.5rem 1.25rem;
+  background-color: var(--border-color);
+  border-radius: 10px;
+  pointer-events: none;
+  position: absolute;
+  bottom: 0.2rem;
+  /* transform: translateY(0); */
+  /* transition: transform 0.2s; */
+}
 
 
 .submit {
