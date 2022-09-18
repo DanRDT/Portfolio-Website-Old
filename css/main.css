@@ -31,7 +31,9 @@ Table of Contents
         Contact Labels
         Contact Inputs
         Message Box
+        Input Validation
         Submit Button
+        
 
   Media Queries
     Square Shaped Devices
@@ -42,6 +44,7 @@ Table of Contents
   
   Animations
     Scrolling Arrows
+    Loading Submit Button
     Load in animation
 */
 
@@ -881,7 +884,7 @@ main {
               border-width 0.01s ease calc((var(--border-time)) * 2);
 }
 
-
+/* Input Validation */
 .input-validation {
   position: relative;
   width: 60%;
@@ -909,7 +912,7 @@ main {
   z-index: 3;
 }
 
-
+/* Submit Button */
 .submit {
   cursor: pointer;
   position: relative;
@@ -973,34 +976,6 @@ main {
   white-space: pre;
   content: "Error...\aSomething Went Wrong";
   color: orangered;
-}
-
-/* Message Sent */
-#message-sent,
-#return {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0s, background 0.3s;
-}
-
-#message-sent {
-  top: 45%;
-  width: 100%;
-  text-align: center;
-  font-size: clamp(4rem, 8vw, 7rem);
-}
-#return {
-  bottom: 10%;
-  text-decoration: none;
-  font-size: 1.5rem;
-  padding: 1rem 2rem;
-  border: 2px solid var(--complementary-color);
-  border-radius: 50px;
-}
-#return:hover, 
-#return:active {
-  background-color: var(--complementary-color);
 }
 
 
@@ -1302,9 +1277,6 @@ main {
     
     /* Loading Submit Button */
     @keyframes loading-submit {
-      /* 0%{
-        transform: rotate(0deg);
-      } */
       100%{
         transform: rotate(360deg);
       }
