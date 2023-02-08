@@ -1,191 +1,329 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="keywords:" content="Portfolio Website Daniel Pulber">
-    <meta name="description" content="My Personal Portfolio Website">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="imgFiles/logos/logo.svg"/>
-    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <meta name="keywords:" content="Portfolio Website Daniel Pulber" />
+    <meta name="description" content="My Personal Portfolio Website" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="imgFiles/logos/logo.svg" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
     <script type="module" defer src="./scripts/main.js"></script>
   </head>
 
   <body>
-      <header>
-        <img class="logo" src="./imgFiles/logos/logo.svg" alt="logo">
-        <a href="#contact" class="contact-button">Contact
-          <div class="button-bg"></div>
+    <header>
+      <img class="logo" src="./imgFiles/logos/logo.svg" alt="logo" />
+      <a href="#contact" class="contact-button"
+        >Contact
+        <div class="button-bg"></div>
+      </a>
+      <div id="scrollbar">
+        <a href="#section1" class="scrollbar-circle section1">
+          <div class="scrollbar-inner-circle"></div>
+          <div class="scrollbar-activeLine"></div>
         </a>
-        <div id="scrollbar">
-          <a href="#section1" class="scrollbar-circle section1">
-            <div class="scrollbar-inner-circle"></div>
-            <div class="scrollbar-activeLine"></div>
-          </a>
-          <a href="#section2" class="scrollbar-circle section2">
-            <div class="scrollbar-inner-circle"></div>
-            <div class="scrollbar-activeLine"></div>
-          </a>
-          <a href="#contact" class="scrollbar-circle section3">
-            <div class="scrollbar-inner-circle"></div>
-            <div class="scrollbar-activeLine"></div>
-          </a>
-        </div>
-      </header>
-      
-      <main>
+        <a href="#section2" class="scrollbar-circle section2">
+          <div class="scrollbar-inner-circle"></div>
+          <div class="scrollbar-activeLine"></div>
+        </a>
+        <a href="#contact" class="scrollbar-circle section3">
+          <div class="scrollbar-inner-circle"></div>
+          <div class="scrollbar-activeLine"></div>
+        </a>
+      </div>
+    </header>
 
-        <section id="section1">
+    <main>
+      <section id="section1">
+        <div class="max-width-container">
           <div class="name">
-            <img class="d-logo" src="./imgFiles/logos/d-logo.svg" alt="d-logo">
+            <img
+              class="d-logo"
+              src="./imgFiles/logos/d-logo.svg"
+              alt="d-logo"
+            />
             <h1 class="title">aniel</h1>
           </div>
           <div class="name">
-            <img class="p-logo" src="./imgFiles/logos/d-logo.svg" alt="p-logo">
+            <img
+              class="p-logo"
+              src="./imgFiles/logos/d-logo.svg"
+              alt="p-logo"
+            />
             <h1 class="title">ulber</h1>
           </div>
-          <h1 class="subtitle">Freelance Software Developer</h1>
-          
+          <h1 class="subtitle">Software Developer</h1>
+
           <div class="scroll-arrow">
-            <svg viewBox="0 0 500 900" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path id="top-arrow" d="M146 42L250.5 146.5L355 42" stroke="white" stroke-width="40" stroke-linecap="square"/>
-              <path class="middle-arrow" d="M146 181L250.5 285.5L355 181" stroke="white" stroke-width="40" stroke-linecap="square"/>
-              <path class="middle-arrow" d="M146 320L250.5 424.5L355 320" stroke="white" stroke-width="40" stroke-linecap="square"/>
-              <path id="bottom-arrow" d="M146 459L250.5 563.5L355 459" stroke="white" stroke-width="40" stroke-linecap="square"/>
-              </svg>
+            <svg
+              viewBox="0 0 500 900"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                id="top-arrow"
+                d="M146 42L250.5 146.5L355 42"
+                stroke="white"
+                stroke-width="40"
+                stroke-linecap="square"
+              />
+              <path
+                class="middle-arrow"
+                d="M146 181L250.5 285.5L355 181"
+                stroke="white"
+                stroke-width="40"
+                stroke-linecap="square"
+              />
+              <path
+                class="middle-arrow"
+                d="M146 320L250.5 424.5L355 320"
+                stroke="white"
+                stroke-width="40"
+                stroke-linecap="square"
+              />
+              <path
+                id="bottom-arrow"
+                d="M146 459L250.5 563.5L355 459"
+                stroke="white"
+                stroke-width="40"
+                stroke-linecap="square"
+              />
+            </svg>
           </div>
-        </section>
-        
-        <section id="section2">
-          <div class="skew">
-            <div class="skewleft"></div>
-            <div class="skewright"></div>
-          </div>
-          
+        </div>
+      </section>
+
+      <section id="section2">
+        <div class="skew">
+          <div class="skewleft"></div>
+          <div class="skewright"></div>
+        </div>
+        <div class="max-width-container scroll-line">
           <div class="scroll-line-container">
-            <svg class="scroll-line" viewBox="0 0 476 927" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path id="scroll-line" d="M238.458 4C238.458 4 240 28.1667 245 52.5C250 76.8333 276.758 123.7 369.958 160.5C407.458 175.307 455.501 200.5 464.501 258C468.444 283.193 462 334 424 366C390.211 394.454 302.972 416.847 238.458 436C142.458 464.5 121 471.14 65.5 516C46 531.762 18.5001 559 6.99998 605C-1.63757 639.55 11.4091 672 29 693.5C65 737.5 107.235 746.5 147.5 762.5C187.765 778.5 199 786.5 199 786.5C237.5 811 238.458 860.5 238.458 860.5V916.5" stroke="url(#paint0_linear_2_3)" stroke-width="8" stroke-linecap="round"/>
+            <svg
+              class="scroll-line"
+              viewBox="0 0 476 927"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                id="scroll-line"
+                d="M238.458 4C238.458 4 240 28.1667 245 52.5C250 76.8333 276.758 123.7 369.958 160.5C407.458 175.307 455.501 200.5 464.501 258C468.444 283.193 462 334 424 366C390.211 394.454 302.972 416.847 238.458 436C142.458 464.5 121 471.14 65.5 516C46 531.762 18.5001 559 6.99998 605C-1.63757 639.55 11.4091 672 29 693.5C65 737.5 107.235 746.5 147.5 762.5C187.765 778.5 199 786.5 199 786.5C237.5 811 238.458 860.5 238.458 860.5V916.5"
+                stroke="url(#paint0_linear_2_3)"
+                stroke-width="8"
+                stroke-linecap="round"
+              />
               <defs>
-                  <linearGradient id="paint0_linear_2_3" x1="199.027" y1="-6.29894e-06" x2="285.693" y2="1203" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#F87D37"/>
-                      <stop offset="1" stop-color="#FBAA23"/>
-                  </linearGradient>
+                <linearGradient
+                  id="paint0_linear_2_3"
+                  x1="199.027"
+                  y1="-6.29894e-06"
+                  x2="285.693"
+                  y2="1203"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#F87D37" />
+                  <stop offset="1" stop-color="#FBAA23" />
+                </linearGradient>
               </defs>
             </svg>
           </div>
-          <div class="scroll-line-container">
-            <svg class="scroll-line" viewBox="0 0 265 1022" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path id="scroll-line-mobile" d="M134.5 1017.5C134.5 1017.5 135.353 979.836 130.288 956.5C126.536 939.207 123.723 929.421 116 913.5C106.756 894.444 99.1652 884.745 85 869C70.6088 853.003 54.289 842 45.5 831C29.2548 810.668 22.0906 797.828 14.2884 773C3.92252 740.014 3.11304 717.305 4.54141 685C6.64707 637.377 13.7022 606.956 42.5414 569C64.4034 540.227 74.3013 534.901 104.788 515.5C132.288 498 154.721 482.874 179.288 464.5C208.035 443 221.812 426.94 237.041 395C250.062 367.693 256.943 351.618 259.788 321.5C262.634 291.382 259.436 273.83 252.041 246.5C245.077 220.76 233.858 208.829 218.541 187C197.59 157.14 167.288 139 153.788 117.5C140.288 96 142 93.5 139 74C136.558 58.1248 134.788 4 134.788 4" stroke="url(#paint0_linear_2_3)" stroke-width="8" stroke-linecap="round"/>
-                <defs>
-                  <linearGradient id="paint0_linear_2_3" x1="112.5" y1="61.5" x2="196.734" y2="1246" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#F87D37"/>
-                    <stop offset="1" stop-color="#FBAA23"/>
-                  </linearGradient>
-                </defs>
-              </svg>
+          <div class="scroll-line-container mobile">
+            <svg
+              class="scroll-line"
+              viewBox="0 0 265 1022"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                id="scroll-line-mobile"
+                d="M134.5 1017.5C134.5 1017.5 135.353 979.836 130.288 956.5C126.536 939.207 123.723 929.421 116 913.5C106.756 894.444 99.1652 884.745 85 869C70.6088 853.003 54.289 842 45.5 831C29.2548 810.668 22.0906 797.828 14.2884 773C3.92252 740.014 3.11304 717.305 4.54141 685C6.64707 637.377 13.7022 606.956 42.5414 569C64.4034 540.227 74.3013 534.901 104.788 515.5C132.288 498 154.721 482.874 179.288 464.5C208.035 443 221.812 426.94 237.041 395C250.062 367.693 256.943 351.618 259.788 321.5C262.634 291.382 259.436 273.83 252.041 246.5C245.077 220.76 233.858 208.829 218.541 187C197.59 157.14 167.288 139 153.788 117.5C140.288 96 142 93.5 139 74C136.558 58.1248 134.788 4 134.788 4"
+                stroke="url(#paint0_linear_2_3)"
+                stroke-width="8"
+                stroke-linecap="round"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_2_3"
+                  x1="112.5"
+                  y1="61.5"
+                  x2="196.734"
+                  y2="1246"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#F87D37" />
+                  <stop offset="1" stop-color="#FBAA23" />
+                </linearGradient>
+              </defs>
+            </svg>
           </div>
+        </div>
+        <div class="max-width-container">
           <div class="bg-shapes">
-            <img class="bg-shape" src="./imgFiles/shapes/zigzag.svg" alt="zigzag">
-            <img class="bg-shape" src="./imgFiles/shapes/semi-circle.svg" alt="semi-circle">
-            <img class="bg-shape" src="./imgFiles/shapes/real-triangle.svg" alt="real-triangle">
-            <img class="bg-shape" src="./imgFiles/shapes/box-with-triangle.svg" alt="box-with-triangle">
-            <img class="bg-shape" src="./imgFiles/shapes/x-shape.svg" alt="x-shape">
-            <img class="bg-shape" src="./imgFiles/shapes/circle.svg" alt="circle">
+            <img
+              class="bg-shape"
+              src="./imgFiles/shapes/zigzag.svg"
+              alt="zigzag"
+            />
+            <img
+              class="bg-shape"
+              src="./imgFiles/shapes/semi-circle.svg"
+              alt="semi-circle"
+            />
+            <img
+              class="bg-shape"
+              src="./imgFiles/shapes/real-triangle.svg"
+              alt="real-triangle"
+            />
+            <img
+              class="bg-shape"
+              src="./imgFiles/shapes/box-with-triangle.svg"
+              alt="box-with-triangle"
+            />
+            <img
+              class="bg-shape"
+              src="./imgFiles/shapes/x-shape.svg"
+              alt="x-shape"
+            />
+            <img
+              class="bg-shape"
+              src="./imgFiles/shapes/circle.svg"
+              alt="circle"
+            />
           </div>
-          
+
           <div class="quotes">
             <div class="quote" lazy-load>
-              I build amazing experiences <br> 
+              I build amazing experiences <br />
               and <span title="Click Me">responsive</span> designs
             </div>
-            
-            <div class="quote" lazy-load>  
-              By creating <span title="Click Me">cutting-edge</span>,<br> 
+
+            <div class="quote" lazy-load>
+              By creating <span title="Click Me">cutting-edge</span>,<br />
               <span title="Click Me">pixel-perfect</span>, interactive websites
-              <br>and intuitively implemented <span title="Click Me">UX</span>
+              <br />and intuitively implemented <span title="Click Me">UX</span>
             </div>
           </div>
-          
-        </section>
-               
-        <section id="section3">
+        </div>
+      </section>
 
-            <div class="subheading" lazy-load>
-              Interested in working <br> <span class="">together?</span>
-            </div>
-            
-            <div id="contact" class="heading" lazy-load>
-              Get in Touch
-            </div>
-            
-            <div style="display: grid;" >  <!--for safari-->
-              <div class="contacts">
-                <div class="contact-label" lazy-load>
-                  Email
-                </div>
-                <div class="contact-label" lazy-load>
-                  Phone Number
-                </div>
-                <div class="seperator" lazy-load></div>
-                <div class="contact-info"  title="Copy" data-info="pulberdan@gmail.com" copy-info lazy-load>
-                  pulberdan@gmail.com
-                  <div class="contact-info-tip"> - Copy to Clipboard </div>
-                </div>
-                <div class="contact-info"  title="Copy" data-info="8643109101" copy-info lazy-load>
-                  (864) 310-9101
-                  <div class="contact-info-tip"> - Copy to Clipboard </div>
-                </div>
+      <section id="section3">
+        <div class="max-width-container">
+          <div class="subheading" lazy-load>
+            Interested in working <br />
+            <span class="">together?</span>
+          </div>
+
+          <div id="contact" class="heading" lazy-load>Get in Touch</div>
+
+          <div style="display: grid">
+            <!--for safari-->
+            <div class="contacts">
+              <div class="contact-label" lazy-load>Email</div>
+              <div class="contact-label" lazy-load>Phone Number</div>
+              <div class="seperator" lazy-load></div>
+              <div
+                class="contact-info"
+                title="Copy"
+                data-info="pulberdan@gmail.com"
+                copy-info
+                lazy-load
+              >
+                pulberdan@gmail.com
+                <div class="contact-info-tip">- Copy to Clipboard</div>
+              </div>
+              <div
+                class="contact-info"
+                title="Copy"
+                data-info="8643109101"
+                copy-info
+                lazy-load
+              >
+                (864) 310-9101
+                <div class="contact-info-tip">- Copy to Clipboard</div>
               </div>
             </div>
+          </div>
 
-            <div class="links" lazy-load>
-              <a href="https://www.facebook.com/Pulber-Web-Development-100247022807941/">
-                <img src="./imgFiles/logos/facebook-logo.svg" alt="Facebook">
-              </a>
-              <div class="contact-form-button" data-dropdown>
-                <button class="button-border" data-dropdown-button>
-                  <img src="./imgFiles/shapes/mail-icon.svg" alt="mail-icon" data-dropdown-button>
-                </button>
-                <form class="contact-form-container"> 
-                 <div class="contact-bg-shapes">
-                    <img src="./imgFiles/shapes/zigzag.svg" alt="zigzag">
-                    <img src="./imgFiles/shapes/special-triangle.svg" alt="special-triangle">
-                    <img src="./imgFiles/shapes/semi-circle.svg" alt="semi-circle">
-                    <img src="./imgFiles/shapes/zigzag.svg" alt="zigzag">
-                  </div>
-                  <div class="x-button" data-dropdown-button>
-                    <div class="line1" data-dropdown-button></div>
-                    <div class="line2" data-dropdown-button></div>
-                  </div>
-                  <div class="contact-form">
-                    <h1>Send me a <span>quick</span><br>message</h1>
-                    <h2>Name</h2>
-                    <input class="contact-from-input" type="text" name="name" placeholder="..." required>
-                    <p class="input-validation"></p>
-                    <h2 >Email</h2>
-                    <input class="contact-from-input" type="email" name="email" placeholder="..." pattern="[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?" required>
-                    <p class="input-validation"></p>
-                    <h2>Message</h2>
-                    <div class="message-container">
-                      <textarea class="message contact-from-input" name="message" rows="5"  placeholder="..." required></textarea>
-                      <div class="m-border"></div>
-                    </div>
-                    <p class="input-validation"></p>
-                    <button id="contact-form-button" type="submit" class="submit">Submit
-                      <div class="button-bg"></div>
-                      <div class="loading-animation"></div>
-                      <div class="contact-form-submit-message"></div>
-                    </button>
-                  </div>
-                </form>
-              </div>
-            <a href="https://www.linkedin.com/in/daniel-pulber-1095a3248/">
-              <img src="./imgFiles/logos/linkedin-logo.png" alt="LinkedIn">
+          <div class="links" lazy-load>
+            <a
+              href="https://www.facebook.com/Pulber-Web-Development-100247022807941/"
+            >
+              <img src="./imgFiles/logos/facebook-logo.svg" alt="Facebook" />
             </a>
+            <div class="contact-form-button" data-dropdown>
+              <button class="button-border" data-dropdown-button>
+                <img
+                  src="./imgFiles/shapes/mail-icon.svg"
+                  alt="mail-icon"
+                  data-dropdown-button
+                />
+              </button>
+              <form class="contact-form-container">
+                <div class="contact-bg-shapes">
+                  <img src="./imgFiles/shapes/zigzag.svg" alt="zigzag" />
+                  <img
+                    src="./imgFiles/shapes/special-triangle.svg"
+                    alt="special-triangle"
+                  />
+                  <img
+                    src="./imgFiles/shapes/semi-circle.svg"
+                    alt="semi-circle"
+                  />
+                  <img src="./imgFiles/shapes/zigzag.svg" alt="zigzag" />
+                </div>
+                <div class="x-button" data-dropdown-button>
+                  <div class="line1" data-dropdown-button></div>
+                  <div class="line2" data-dropdown-button></div>
+                </div>
+                <div class="contact-form">
+                  <h1>Send me a <span>quick</span><br />message</h1>
+                  <h2>Name</h2>
+                  <input
+                    class="contact-from-input"
+                    type="text"
+                    name="name"
+                    placeholder="..."
+                    required
+                  />
+                  <p class="input-validation"></p>
+                  <h2>Email</h2>
+                  <input
+                    class="contact-from-input"
+                    type="email"
+                    name="email"
+                    placeholder="..."
+                    pattern="[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?"
+                    required
+                  />
+                  <p class="input-validation"></p>
+                  <h2>Message</h2>
+                  <div class="message-container">
+                    <textarea
+                      class="message contact-from-input"
+                      name="message"
+                      rows="5"
+                      placeholder="..."
+                      required
+                    ></textarea>
+                    <div class="m-border"></div>
+                  </div>
+                  <p class="input-validation"></p>
+                  <button id="contact-form-button" type="submit" class="submit">
+                    Submit
+                    <div class="button-bg"></div>
+                    <div class="loading-animation"></div>
+                    <div class="contact-form-submit-message"></div>
+                  </button>
+                </div>
+              </form>
             </div>
-        </section>
-        
-      </main>
-
+            <a href="https://www.linkedin.com/in/daniel-pulber-1095a3248/">
+              <img src="./imgFiles/logos/linkedin-logo.png" alt="LinkedIn" />
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
-
 </html>
