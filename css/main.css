@@ -23,7 +23,10 @@ Table of Contents
       Quotes
       Background Shapes
 
-    Section 3
+    Section Projects
+
+
+    Section 4
       Heading
       Contact Info
       Mail Icon
@@ -146,7 +149,7 @@ body {
   position: fixed;
   top: -1rem;
   left: -0.3rem;
-  z-index: 10;
+  z-index: 15;
   width: 10rem;
   pointer-events: none;
   opacity: 0;
@@ -233,7 +236,7 @@ body {
 
 /* Scrollbar */
 #scrollbar {
-  z-index: 10;
+  z-index: 15;
   position: fixed;
   top: 50%;
   right: 1rem;
@@ -337,6 +340,7 @@ main {
   right: -1.5rem;
   bottom: 1rem;
   margin-left: 5rem;
+  transition: transform 0s;
 }
 
 .name:nth-of-type(2) {
@@ -351,6 +355,7 @@ main {
   right: 5.5rem;
   bottom: -2.5rem;
   margin-left: 5rem;
+  transition: transform 0s;
 }
 
 .subtitle {
@@ -536,13 +541,63 @@ main {
   left: 75%;
 }
 
-/* Section 3 */
-#section3 {
+/* Section Projects */
+#projects {
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#projects .skewright,
+#projects .skewleft {
+  background-color: var(--background-color);
+}
+#projects .max-width-container {
+  align-items: center;
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  margin-top: 4rem;
+  max-width: 65rem;
+}
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: clamp(15rem, 87vw, 25rem);
+  padding: 0 1rem;
+}
+.project img {
+  width: 100%;
+  height: clamp(8rem, 45vw, 13rem);
+  background-color: #d9d9d9;
+}
+.project > h2 {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.github-btn {
+  margin-top: 7rem;
+  margin-bottom: 5rem;
+}
+.github-btn img {
+  width: 4.5rem;
+}
+
+/* Section 4 */
+#section4 {
   position: relative;
   width: 100%;
   min-height: 110vh;
   z-index: 2;
-  background-color: var(--background-color);
+  background-color: var(--background-color-darker);
   /* background-image: radial-gradient(hwb(0 35% 65%) -200%,  hwb(0 9% 91%) 90%);
   background-size: 400% 400%;
   background-position: 50% 100%; */
@@ -551,7 +606,7 @@ main {
   align-items: center;
 }
 
-#section3 .max-width-container {
+#section4 .max-width-container {
   align-items: center;
 }
 
@@ -588,12 +643,13 @@ main {
   width: 97%;
   height: 4px;
   background-image: var(--complementary-linear-gradient);
+  z-index: -1;
 }
 
 /* Contact Info */
 .contacts {
   font-size: 2rem;
-  font-size: clamp(1.5rem, 2vw, 2.3rem);
+  font-size: clamp(1.5rem, 2vw, 2rem);
   padding-top: 3rem;
   display: grid;
   gap: 1rem;
@@ -1072,7 +1128,7 @@ main {
     bottom: 15rem;
   }
 
-  /* Section 3 */
+  /* Section 4 */
   .subheading {
     margin-bottom: 2.5rem;
   }
@@ -1158,7 +1214,7 @@ main {
   .bg-shape:nth-child(5) {
     opacity: 0;
   }
-  /* Section 3 */
+  /* Section 4 */
   .subheading {
     font-size: max(7vw, 1.4rem);
     margin-top: 4rem;
@@ -1259,7 +1315,8 @@ main {
 @media (min-height: 1400px) {
   #section1,
   #section2,
-  #section3 {
+  #section3,
+  #section4 {
     min-height: 70vh;
   }
   .bg-shape:nth-child(4) {
