@@ -565,7 +565,7 @@ main {
   justify-content: center;
   gap: 5rem;
   margin-top: 4rem;
-  max-width: 65rem;
+  max-width: 60rem;
 }
 .project {
   display: flex;
@@ -578,6 +578,7 @@ main {
   width: 100%;
   height: clamp(8rem, 45vw, 13rem);
   background-color: #d9d9d9;
+  object-fit: cover;
 }
 .project > h2 {
   font-size: clamp(1.5rem, 2vw, 2rem);
@@ -586,6 +587,7 @@ main {
 .github-btn {
   margin-top: 7rem;
   margin-bottom: 5rem;
+  animation: hover 3s linear reverse infinite;
 }
 .github-btn img {
   width: 4.5rem;
@@ -1373,6 +1375,31 @@ main {
 @keyframes loading-submit {
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* Hover Animation */
+@keyframes hover {
+  0% {
+    transform: translateY(0.15rem);
+  }
+  10% {
+    transform: translateY(0.2rem);
+  }
+  20% {
+    transform: translateY(0.15rem);
+  }
+  40% {
+    transform: translateY(-0.15rem) scale(1.04);
+  }
+  50% {
+    transform: translateY(-0.2rem) scale(1.04);
+  }
+  60% {
+    transform: translateY(-0.15rem) scale(1.04);
+  }
+  100% {
+    transform: translateY(0.15rem);
   }
 }
 
