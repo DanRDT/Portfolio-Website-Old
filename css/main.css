@@ -38,7 +38,6 @@ Table of Contents
   Media Queries
     Square Shaped Devices
     Phones
-    Special Case
     Thin Phones
     Max Height
   
@@ -155,12 +154,16 @@ body {
   transition: opacity 0.3s, transform 0.2s, width 0.3s;
 }
 
-.contact-button {
+.btns-container {
   position: absolute;
   top: 2.5rem;
-  right: 5%;
+  right: 2%;
   z-index: 10;
   font-size: 1.5em;
+  scale: 0.9;
+}
+
+.contact-button {
   padding: 0.5rem 3rem;
   background: transparent;
   border: solid 0.15rem var(--complementary-color);
@@ -168,15 +171,16 @@ body {
   text-decoration: none;
 }
 
+.projects-button {
+  text-decoration: none;
+  padding: 0.2rem 3rem;
+}
+
 /* Gradient Border */
 .submit::before,
 .contact-button::before {
   content: "";
   position: absolute;
-  top: -3px;
-  left: -3px;
-  height: 115%;
-  width: 104%;
   border-radius: 50px;
   background-image: var(--complementary-linear-gradient);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -185,10 +189,21 @@ body {
   mask-composite: exclude;
   pointer-events: none;
 }
+
 .contact-button::before {
+  top: -13px;
+  right: 0;
+  height: 207%;
+  width: 49.5%;
   padding: 0.2rem;
-  width: 103%;
 }
+.submit::before {
+  top: -3px;
+  left: -3px;
+  height: 115%;
+  width: 104%;
+}
+
 .button-bg {
   position: absolute;
   top: -0.2rem;
@@ -200,6 +215,12 @@ body {
   background-image: var(--complementary-linear-gradient);
   transform: translateY(1.4rem) scale(0.9, 0.2);
   transition: opacity 0.1s linear, transform 0.15s;
+}
+.contact-button .button-bg {
+  top: -0.7rem;
+  right: 1px;
+  padding: 1.4rem 5.9rem;
+  left: auto;
 }
 .submit:active .button-bg,
 .contact-button:active .button-bg,
@@ -219,7 +240,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  transform: translateY(-60%);
+  transform: translateY(-65%) scale(0.75);
 }
 
 .scrollbar-circle.currentSec {
@@ -239,7 +260,7 @@ body {
   position: absolute;
   top: 50%;
   right: 1.5rem;
-  padding: 0.15rem 0.9rem;
+  padding: 0.1rem 0.6rem;
   transform: translate(0.4rem, -50%);
   background: var(--primary-color);
   opacity: 0;
@@ -809,7 +830,7 @@ main {
 .contact-form input,
 .contact-form textarea {
   font-size: 1.6rem;
-  -webkit-appearance: none;
+  appearance: none;
   border: none;
   outline: none;
   background-color: #d9d9d9;
@@ -993,8 +1014,16 @@ main {
     width: clamp(7rem, 15vw, 8rem);
     top: -0.5rem;
   }
-  #scrollbar {
+  .projects-button {
+    opacity: 0;
+  }
+  .btns-container {
     scale: 0.8;
+    right: 1%;
+  }
+
+  #scrollbar {
+    transform: translateY(-65%) scale(0.6);
   }
   /* Section 1 */
   .name:nth-of-type(1) {
@@ -1077,7 +1106,7 @@ main {
   }
   /* Section 1 */
   .name:nth-of-type(1) {
-    padding: calc((15%) + 6rem) 0 0 0;
+    padding: calc((20%) + 8rem) 0 0 0;
     right: 2.5rem;
   }
   .name:nth-of-type(2) {
@@ -1101,13 +1130,13 @@ main {
     top: -1rem;
   }
   .scroll-arrow {
-    top: 5rem;
     scale: 0.9;
+    margin-top: auto;
+    bottom: 1rem;
+    top: auto;
   }
-  .contact-button {
-    top: 34rem;
-    right: 25%;
-    scale: 0.8;
+  .btns-container {
+    display: none;
   }
 
   /* Section 2 */
@@ -1172,20 +1201,20 @@ main {
     scale: 0.8;
   }
 }
-/* Special Case */
-@media (max-width: 520px) {
-  .contact-button {
-    top: 31rem;
-  }
-}
 
 /* Thin Phones */
 @media (max-width: 400px) {
   #scrollbar {
     opacity: 0;
   }
+  .name:nth-of-type(1) {
+    padding: calc((15%) + 10rem) 0 0 0;
+    right: 3.5rem;
+  }
   .name:nth-of-type(2) {
-    top: -1rem;
+    padding-left: 11%;
+    top: -0.7rem;
+    right: 3.7rem;
   }
   .title {
     font-size: max(28vw, 5.8rem);
@@ -1203,13 +1232,7 @@ main {
     top: -0.5rem;
   }
   .scroll-arrow {
-    top: 6rem;
-    scale: 0.8;
-  }
-  .contact-button {
-    top: calc(10rem + 70vw);
-    right: 20%;
-    scale: 0.7;
+    scale: 0.85;
   }
   .scroll-line-container:nth-child(3) {
     top: -10px;
