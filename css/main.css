@@ -579,8 +579,12 @@ main {
 .project > img {
   width: 100%;
   height: clamp(8rem, 45vw, 13rem);
+}
+.project > img,
+.project-details-container > figure img {
   background-color: #d9d9d9;
   object-fit: cover;
+  border-radius: 5px;
 }
 .project > h2 {
   text-align: center;
@@ -593,8 +597,8 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: var(--background-color-darkest);
-  width: clamp(20rem, 90vw, 80rem);
-  min-height: 75vh;
+  width: clamp(20rem, 90vw, 70rem);
+  min-height: min(75vh, 45rem);
   z-index: 50;
   display: flex;
   flex-direction: column;
@@ -620,7 +624,7 @@ main {
   padding: 0 1.5rem;
 }
 .project-details-container > figure {
-  width: clamp(15rem, 65vw, 20rem);
+  width: clamp(15rem, 65vw, 25rem);
 }
 .project-details-container > aside {
   width: clamp(15rem, 65vw, 30rem);
@@ -634,17 +638,17 @@ main {
 }
 .main-project-image {
   background-color: #616161;
-  min-height: 10rem;
+  min-height: 13rem;
   width: 100%;
 }
 .project-images {
   display: flex;
-  gap: 1rem;
+  gap: clamp(0.3rem, 2.8vw, 1rem);
 }
 .project-images img {
   background-color: #616161;
-  min-height: 3rem;
-  min-width: none;
+  height: clamp(3rem, 10vw, 3.5rem);
+  width: clamp(3.3rem, 12vw, 4.2rem);
 }
 
 .project-details-container aside {
