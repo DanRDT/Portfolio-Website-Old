@@ -20,7 +20,10 @@ import appearOnScroll from "./appearOnScroll.js"
 import nonURLScroll from "./nonURLScroll.js"
 
 // Contact form functionality
-import contactform from "./contactform.js"
+import contactForm from "./contactform.js"
 
 // tech stack rotating
 import rotatingTechStack from "./rotatingTechStack.js"
+
+// Select Project Images
+import projectImageSelection from "./projectImageSelection.js"

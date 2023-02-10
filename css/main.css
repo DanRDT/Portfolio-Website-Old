@@ -640,17 +640,18 @@ main {
 }
 .main-project-image {
   background-color: #616161;
-  min-height: 13rem;
+  height: 14rem;
   width: 100%;
 }
 .project-images {
   display: flex;
   gap: clamp(0.3rem, 2.8vw, 1rem);
 }
-.project-images img {
+.project-image {
   background-color: #616161;
   height: clamp(3rem, 10vw, 3.5rem);
   width: clamp(3.3rem, 12vw, 4.2rem);
+  cursor: pointer;
 }
 
 .project-details-container aside {
@@ -732,14 +733,26 @@ main {
 }
 
 .project-link {
+  position: relative;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  border-radius: 50%;
+  padding: 0.7rem;
+  border: 0.3rem solid var(--primary-color);
+  transition: background 0.2s;
 }
-
-@media (max-width: 700px) {
-  /* .project-details-container {
-    padding: 0 0.5rem;
-  } */
+.project-link:hover {
+  background-color: var(--primary-color);
+}
+.project-link:hover .image-inverted {
+  opacity: 1;
+}
+.project-link .image-inverted {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0s, opacity 0.2s;
+  opacity: 0;
 }
 
 .github-btn {
