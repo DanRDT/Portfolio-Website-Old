@@ -59,11 +59,7 @@ Table of Contents
   --secondary-color: #000;
   --complementary-color: #f87d37;
   --complementary-radial-gradient: radial-gradient(#f87d37 15%, #fbaa23);
-  --complementary-linear-gradient: linear-gradient(
-    135deg,
-    #f87d37,
-    #fbaa23 120%
-  );
+  --complementary-linear-gradient: linear-gradient(135deg, #f87d37, #fbaa23 120%);
 }
 /*Fonts*/
 @font-face {
@@ -599,6 +595,11 @@ main {
   background-color: var(--background-color-darkest);
   width: clamp(20rem, 90vw, 70rem);
   min-height: min(75vh, 45rem);
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
   z-index: 50;
   display: flex;
   flex-direction: column;
@@ -619,18 +620,18 @@ main {
 .project-details-container {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: clamp(1rem, 2.5vw, 3rem);
   flex-wrap: wrap;
   padding: 0 1.5rem;
 }
 .project-details-container > figure {
   width: clamp(15rem, 65vw, 25rem);
+  margin-bottom: 0.5rem;
 }
 .project-details-container > aside {
-  width: clamp(15rem, 65vw, 30rem);
+  width: clamp(15rem, 65vw, 27rem);
 }
 .project-details-container > figure {
-  /* min-height: 13rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -652,6 +653,188 @@ main {
 }
 
 .project-details-container aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.project-details-container summary {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+}
+
+.tech-stack {
+  width: 100%;
+}
+
+.tech-stack h2 {
+  text-align: center;
+  font-size: clamp(1.35rem, 2.5vw, 1.6rem);
+  color: transparent;
+  background-size: 150% 150%;
+  background-position: 150% 120%;
+  background-image: var(--complementary-radial-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin: 1rem 0;
+}
+
+.rotating-logos-container {
+  margin-bottom: 1rem;
+  overflow: hidden;
+  width: 100%;
+  overflow-x: hidden;
+}
+.rotating-logos {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  /* animation: tech-stack-scroll 3s linear reverse infinite; */
+}
+.rotating-logos img {
+  object-fit: contain;
+  border-radius: 5px;
+  position: relative;
+  height: 4rem;
+  /* animation: tech-stack-scroll 3s linear reverse infinite; */
+}
+
+.rotating-logos-container {
+  transform-style: preserve-3d;
+}
+.rotating-logos {
+  --_depth: 200px;
+  transition: transform 2s;
+  transform-style: preserve-3d;
+  animation-name: rotating-logos;
+  animation-duration: 7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rotating-logos img {
+  position: absolute;
+  top: 0;
+  margin: 0 auto;
+  transform: rotateY(0turn) translateZ(var(--_depth));
+}
+.rotating-logos img:nth-of-type(2) {
+  transform: rotateY(0.1turn) translateZ(var(--_depth));
+}
+
+.rotating-logos-container:hover .rotating-logos {
+  animation-play-state: paused;
+  cursor: pointer;
+}
+@keyframes rotating-logos {
+  0% {
+    transform: rotateY(0turn);
+  }
+  0% {
+    transform: rotateY(1turn);
+  }
+}
+
+:root {
+  --level-one: translateZ(3rem);
+  --level-two: translateZ(6rem);
+  --level-three: translateZ(9rem);
+
+  --fw-normal: 400;
+  --fw-bold: 700;
+
+  --clr: #b7c9e5;
+}
+.card {
+  width: 400px;
+}
+
+.card__content {
+  text-align: center;
+  position: relative;
+  padding: 15em 5em;
+  transition: transform 3s;
+  background: pink;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card__content {
+  transform: rotateY(0.5turn);
+}
+
+.card__front,
+.card__back {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5em 3em;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  display: grid;
+  align-content: center;
+}
+
+.card__front {
+  background-color: var(--clr);
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/fair.jpg);
+  background-size: cover;
+  background-blend-mode: overlay;
+  color: #333;
+}
+
+.card__front::before {
+  content: "";
+  position: absolute;
+  --spacer: 1em;
+  top: var(--spacer);
+  bottom: var(--spacer);
+  left: var(--spacer);
+  right: var(--spacer);
+  border: 3px solid currentColor;
+  transform: var(--level-one);
+}
+
+.card__title {
+  font-size: 3.5rem;
+  transform: var(--level-three);
+  order: 2;
+  text-transform: uppercase;
+}
+
+.card__subtitle {
+  transform: var(--level-two);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.75rem;
+  font-weight: var(--fw-bold);
+  opacity: 0.7;
+}
+
+.card__body {
+  transform: var(--level-two);
+  font-weight: var(fw-normal);
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.card__back {
+  transform: rotateY(0.5turn);
+  color: var(--clr);
+  background: #333;
+}
+
+@keyframes tech-stack-scroll {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
 }
 
 .project-link {
@@ -821,8 +1004,7 @@ main {
   border-radius: 100px;
   cursor: pointer;
   background-color: transparent;
-  transition: background-color 0.1s,
-    padding 0.45s cubic-bezier(0.42, 0.38, 0.34, 1.34), opacity 1s;
+  transition: background-color 0.1s, padding 0.45s cubic-bezier(0.42, 0.38, 0.34, 1.34), opacity 1s;
 }
 .button-border::after {
   position: absolute;
@@ -872,8 +1054,7 @@ main {
   opacity: 0;
   pointer-events: none;
   transform: translateY(18.1rem) scale(0.3, 0.2);
-  transition: opacity 0.2s ease-in-out,
-    transform 0.4s cubic-bezier(0.42, 0.38, 0.34, 1.34);
+  transition: opacity 0.2s ease-in-out, transform 0.4s cubic-bezier(0.42, 0.38, 0.34, 1.34);
 }
 
 .x-button {
@@ -1020,8 +1201,7 @@ main {
   right: 0;
   border-bottom: 0px solid var(--border-color);
   border-left: 0px solid var(--border-color);
-  transition: width var(--border-time) ease calc(var(--border-time)),
-    height var(--border-time) ease,
+  transition: width var(--border-time) ease calc(var(--border-time)), height var(--border-time) ease,
     border-width 0.01s ease calc((var(--border-time)) * 2);
 }
 .message:focus ~ .m-border::before,
@@ -1032,8 +1212,7 @@ main {
 .message:focus ~ .m-border::before {
   border-top: 3px solid var(--border-color);
   border-right: 3px solid var(--border-color);
-  transition: width var(--border-time) ease,
-    height var(--border-time) ease calc(var(--border-time)),
+  transition: width var(--border-time) ease, height var(--border-time) ease calc(var(--border-time)),
     border-width 0.01s ease;
 }
 .message:focus ~ .m-border::after {

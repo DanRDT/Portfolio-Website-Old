@@ -21,3 +21,6 @@ import nonURLScroll from "./nonURLScroll.js"
 
 // Contact form functionality
 import contactform from "./contactform.js"
+
+// tech stack rotating
+import rotatingTechStack from "./rotatingTechStack.js"
