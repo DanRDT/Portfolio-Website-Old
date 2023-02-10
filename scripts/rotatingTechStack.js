@@ -1,15 +1,19 @@
 export default document.querySelectorAll(".rotating-logos").forEach((rotatingGroup) => {
-  const nodeList = []
+  const imgNodes = []
+  rotatingGroup.childNodes.forEach((node) => {
+    if (node.nodeName == "IMG") {
+      imgNodes.push(node)
+    }
+  })
 
-  const oldNodes = rotatingGroup.childNodes.forEach((node) => {})
+  const rotateDeg = calcTurn(imgNodes.length)
 
-  //check if it redirects to on the page
-  if (pageSectionRedirect.substring(0, 1) !== "#") {
-    return
-  }
-
-  anchor.addEventListener("click", (e) => {
-    e.preventDefault()
-    document.querySelector(pageSectionRedirect).scrollIntoView(true, { behavior: "smooth" })
+  imgNodes.map((node, i) => {
+    const rotation = rotateDeg * i
+    node.style.transform = `rotateY(${rotation}turn) translateZ(var(--_depth))`
   })
 })
+
+function calcTurn(numOfImgs) {
+  return (1 / numOfImgs).toFixed(4)
+}

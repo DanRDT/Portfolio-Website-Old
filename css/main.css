@@ -604,6 +604,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  scrollbar-width: none;
 }
 .project-popup .x-button {
   left: auto;
@@ -625,11 +626,11 @@ main {
   padding: 0 1.5rem;
 }
 .project-details-container > figure {
-  width: clamp(15rem, 65vw, 25rem);
+  width: clamp(15rem, 75vw, 25rem);
   margin-bottom: 0.5rem;
 }
 .project-details-container > aside {
-  width: clamp(15rem, 65vw, 27rem);
+  width: clamp(15rem, 75vw, 27rem);
 }
 .project-details-container > figure {
   display: flex;
@@ -678,51 +679,43 @@ main {
 }
 
 .rotating-logos-container {
-  margin-bottom: 1rem;
-  overflow: hidden;
-  width: 100%;
+  --_depth: 250px;
+  --_depth: clamp(200px, 45vw, 250px);
+
   overflow-x: hidden;
+  overflow-y: visible;
+  width: 100%;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  position: relative;
+  height: 6rem;
+  perspective-origin: 50% -10%;
 }
 .rotating-logos {
-  display: flex;
-  justify-content: center;
   gap: 1rem;
   position: relative;
-  /* animation: tech-stack-scroll 3s linear reverse infinite; */
-}
-.rotating-logos img {
-  object-fit: contain;
-  border-radius: 5px;
-  position: relative;
-  height: 4rem;
-  /* animation: tech-stack-scroll 3s linear reverse infinite; */
-}
-
-.rotating-logos-container {
-  transform-style: preserve-3d;
-}
-.rotating-logos {
-  --_depth: 200px;
-  transition: transform 2s;
-  transform-style: preserve-3d;
-  animation-name: rotating-logos;
-  animation-duration: 7s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-play-state: running;
   height: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.rotating-logos {
+  transition: transform 2s;
+  transform-style: preserve-3d;
+  animation-name: rotating-logos;
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
 .rotating-logos img {
+  object-fit: contain;
+  border-radius: 5px;
+  height: 4rem;
   position: absolute;
   top: 0;
   margin: 0 auto;
-  transform: rotateY(0turn) translateZ(var(--_depth));
-}
-.rotating-logos img:nth-of-type(2) {
-  transform: rotateY(0.1turn) translateZ(var(--_depth));
+  backface-visibility: hidden;
 }
 
 .rotating-logos-container:hover .rotating-logos {
@@ -738,108 +731,15 @@ main {
   }
 }
 
-:root {
-  --level-one: translateZ(3rem);
-  --level-two: translateZ(6rem);
-  --level-three: translateZ(9rem);
-
-  --fw-normal: 400;
-  --fw-bold: 700;
-
-  --clr: #b7c9e5;
-}
-.card {
-  width: 400px;
-}
-
-.card__content {
-  text-align: center;
-  position: relative;
-  padding: 15em 5em;
-  transition: transform 3s;
-  background: pink;
-  transform-style: preserve-3d;
-}
-
-.card:hover .card__content {
-  transform: rotateY(0.5turn);
-}
-
-.card__front,
-.card__back {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 5em 3em;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  display: grid;
-  align-content: center;
-}
-
-.card__front {
-  background-color: var(--clr);
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/fair.jpg);
-  background-size: cover;
-  background-blend-mode: overlay;
-  color: #333;
-}
-
-.card__front::before {
-  content: "";
-  position: absolute;
-  --spacer: 1em;
-  top: var(--spacer);
-  bottom: var(--spacer);
-  left: var(--spacer);
-  right: var(--spacer);
-  border: 3px solid currentColor;
-  transform: var(--level-one);
-}
-
-.card__title {
-  font-size: 3.5rem;
-  transform: var(--level-three);
-  order: 2;
-  text-transform: uppercase;
-}
-
-.card__subtitle {
-  transform: var(--level-two);
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 0.75rem;
-  font-weight: var(--fw-bold);
-  opacity: 0.7;
-}
-
-.card__body {
-  transform: var(--level-two);
-  font-weight: var(fw-normal);
-  font-size: 1.5rem;
-  line-height: 1.6;
-}
-
-.card__back {
-  transform: rotateY(0.5turn);
-  color: var(--clr);
-  background: #333;
-}
-
-@keyframes tech-stack-scroll {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 0%;
-  }
-}
-
 .project-link {
-  margin-top: auto;
-  margin-bottom: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 700px) {
+  /* .project-details-container {
+    padding: 0 0.5rem;
+  } */
 }
 
 .github-btn {
