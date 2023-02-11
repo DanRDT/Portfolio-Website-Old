@@ -27,3 +27,6 @@ import rotatingTechStack from "./rotatingTechStack.js"
 
 // Select Project Images
 import projectImageSelection from "./projectImageSelection.js"
+
+// Project popup
+import projectPopup from "./projectPopup.js"
