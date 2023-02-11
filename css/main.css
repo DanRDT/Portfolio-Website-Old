@@ -787,6 +787,12 @@ main {
   width: 4.5rem;
 }
 
+.scale-on-hover:hover,
+.scale-on-hover:active,
+.project-image:hover {
+  transform: scale(1.08);
+}
+
 /* Section 4 */
 #section4 {
   position: relative;

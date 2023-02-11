@@ -14,7 +14,7 @@ import clipboard from "./clipboard.js"
 import appearOnScroll from "./appearOnScroll.js"
 
 //Scroll bar on left side of screen
-// import scrollbar from './scrollbar.js'
+import scrollbar from "./scrollbar.js"
 
 // Scroll functionality without changing url
 import nonURLScroll from "./nonURLScroll.js"
