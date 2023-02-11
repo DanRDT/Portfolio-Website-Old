@@ -634,7 +634,7 @@ main {
   font-size: clamp(1.7rem, 3vw, 2.2rem);
   padding-top: 3rem;
   padding-bottom: 2rem;
-  width: 100%;
+  width: clamp(12rem, 55vw, 80%);
 }
 /* Project Details */
 .project-details-container {
@@ -680,7 +680,7 @@ main {
   align-items: center;
 }
 .project-details-container summary {
-  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
 }
 
 /* Project Tech Stack */
