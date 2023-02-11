@@ -157,7 +157,6 @@ body {
   opacity: 0;
   transform: translateY(-80%) scale(0.5);
   transition: opacity 0.3s, transform 0.2s, width 0.3s;
-  display: none;
 }
 
 .btns-container {
