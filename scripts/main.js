@@ -5,7 +5,7 @@ import dropdownEventListener from "./dropdowns.js"
 import logo from "./logo.js"
 
 // Scrolling line
-// import scrollLine from "./scrollLine.js"
+import scrollLine from "./scrollLine.js"
 
 //Clipboard Functionality
 import clipboard from "./clipboard.js"
