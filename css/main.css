@@ -178,7 +178,24 @@ body {
 
 .projects-button {
   text-decoration: none;
-  padding: 0.2rem 3rem;
+  margin: 0.2rem 3rem;
+  position: relative;
+}
+.projects-button::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 90%;
+  bottom: 0;
+  left: 2px;
+  z-index: -1;
+  background-image: var(--complementary-linear-gradient);
+  transform: translateY(7px) scaleX(0.8);
+  opacity: 0;
+}
+.projects-button:hover::before {
+  transform: translateY(0) scaleX(1);
+  opacity: 1;
 }
 
 /* Gradient Border */
@@ -602,7 +619,7 @@ main {
   left: 50%;
   transform: translate(-50%, -50%) scale(0.5);
   background-color: var(--background-color-darkest);
-  width: clamp(20rem, 90vw, 70rem);
+  width: clamp(20rem, 100vw, 70rem);
   min-height: min(75vh, 45rem);
   max-height: 100vh;
   max-height: 100dvh;
@@ -681,6 +698,26 @@ main {
 }
 .project-details-container summary {
   font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+}
+.project-details-container a {
+  text-decoration: none;
+  position: relative;
+  background-image: var(--complementary-linear-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+}
+.project-details-container a:hover {
+  color: transparent;
+}
+.project-details-container a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-image: var(--complementary-linear-gradient);
 }
 
 /* Project Tech Stack */

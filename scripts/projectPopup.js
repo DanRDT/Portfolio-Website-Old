@@ -1,5 +1,6 @@
 const body = document.querySelector("body")
 const logo = document.querySelector(".logo")
+const scrollbar = document.querySelector("#scrollbar")
 
 export default document.querySelectorAll(".project").forEach((projectNode) => {
   const projectPopup = projectNode.lastElementChild
@@ -25,11 +26,15 @@ export default document.querySelectorAll(".project").forEach((projectNode) => {
 function showPopup(popup) {
   popup.classList.add("active")
   body.style.overflow = "hidden"
-  logo.style.opacity = "0"
+  if (body.offsetWidth < 1250) {
+    logo.style.opacity = "0"
+    scrollbar.style.display = "none"
+  }
 }
 
 function hidePopup(popup) {
   popup.classList.remove("active")
   body.style.overflow = "visible"
   logo.style.opacity = "1"
+  scrollbar.style.display = "flex"
 }
