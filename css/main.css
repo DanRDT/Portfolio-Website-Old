@@ -110,7 +110,7 @@ Table of Contents
 }
 html {
   font-size: 16px;
-  scrollbar-color: var(--complementary-color) var(--background-color); /*#8f75ee */
+  scrollbar-color: var(--complementary-color) var(--background-color-darker);
   scrollbar-width: thin;
   scroll-behavior: smooth;
   /* scroll-padding-top: 120px; */
@@ -128,11 +128,11 @@ svg {
   background: transparent;
 }
 ::-webkit-scrollbar-track {
-  background: var(--background-color);
+  background: var(--background-color-darker);
 }
 ::-webkit-scrollbar-thumb {
   background-image: var(--complementary-linear-gradient);
-  border: 0.2rem solid var(--background-color);
+  border: 0.2rem solid var(--background-color-darker);
   border-radius: 20px;
 }
 
@@ -334,7 +334,7 @@ main {
   height: calc(100vw * 0.6625); /*create bg-image aspect ratio: 1920/1272*/
   min-height: 102vh;
   background-color: hwb(0 50% 50%);
-  background-image: url(../imgFiles/mountains.jpg);
+  background-image: url(../imgFiles/mountains.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 30%;
