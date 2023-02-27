@@ -30,6 +30,3 @@ import projectImageSelection from "./projectImageSelection.js"
 
 // Project popup
 import projectPopup from "./projectPopup.js"
-
-// lazyLoading
-//import lazyLoading from "./lazyLoading.js"
