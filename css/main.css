@@ -196,6 +196,7 @@ body {
   background-image: var(--complementary-linear-gradient);
   transform: translateY(7px) scaleX(0.8);
   opacity: 0;
+  transition: transform 0.1s, opacity 0.1s;
 }
 .projects-button:hover::before {
   transform: translateY(0) scaleX(1);
@@ -681,7 +682,7 @@ main {
 /* Project Images */
 .main-project-image {
   background-color: #616161;
-  height: clamp(10rem, 40vw, 15rem);
+  height: clamp(10rem, 40vw, 16rem);
   width: 100%;
 }
 .project-images {
@@ -766,7 +767,7 @@ main {
   transition: transform 2s;
   transform-style: preserve-3d;
   animation-name: rotating-logos;
-  animation-duration: 25s;
+  animation-duration: 35s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-play-state: running;
@@ -801,6 +802,10 @@ main {
   margin-bottom: 2rem;
   border-radius: 50%;
   padding: 0.7rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 0.3rem solid var(--primary-color);
   transition: background 0.2s;
   animation: hover 3s linear 1s reverse infinite;
