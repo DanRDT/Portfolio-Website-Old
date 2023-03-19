@@ -1,0 +1,11 @@
+---
+import ScrollDemo from '../components/scroll-svg/ScrollDemo';
+import Body from '../layouts/Body.astro';
+---
+
+<Body title="Scroll SVG Demo" description="Scroll SVG is a library that allows you to effortlessly animate/draw SVG paths on scroll. It is lightweight and easy to use. It provides a simple API that allows you to easily control the animation of the SVG path. It can be used with any number of SVG paths on a page. It is also compatible with Typescript.">
+	<link rel="stylesheet" type="text/css" href="/css/scroll-svg.css" />
+    <script type="module" defer src="/scripts/scroll-svg/options-menu.js"></script>
+	<ScrollDemo client:load/>
+</Body>
+
