@@ -1,0 +1,31 @@
+---
+export interface Props {
+	title: string
+  description?: string
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <meta name="keywords" content="Portfolio Website Daniel Pulber" />
+    <meta content={description} name="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: dark)" href="/imgFiles/logos/favicon-dark-theme.png" />
+    <link rel="icon" type="image/svg+xml" media="(prefers-color-scheme: light)" href="/imgFiles/logos/favicon-light-theme.png" />
+    <!-- <link rel="stylesheet" type="text/css" href="./css/main.css" /> -->
+    <!-- <script type="module" defer src="./scripts/main.js"></script> -->
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+	
+</style>
