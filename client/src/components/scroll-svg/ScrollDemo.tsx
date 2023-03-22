@@ -4,11 +4,19 @@ import scrollSvg from "scroll-svg"
 const ScrollDemo = () => {
   const [scrollSVG, setScrollSVG] = useState() as any
   const [activeSvg, setActiveSvg] = useState() as any
-  const [options, setOptions] = useState()
+  const [options, setOptions] = useState() as any
+  const [pickSvgDropdown, setPickSvgDropdown] = useState("")
+  const [pickableSvgs, setPickableSvgs] = useState({
+    "scroll-line-1": "active",
+    "scroll-line-2": "",
+    "scroll-line-3": "",
+    "scroll-line-4": "",
+  })
 
   useEffect(() => {
-    const svgPath = document.querySelector("#scroll-line-2") as SVGPathElement
-    setScrollSVG(scrollSvg(svgPath))
+    const svgPath = document.querySelector("#scroll-line-1") as SVGPathElement
+    setActiveSvg(svgPath)
+
     return () => {
       scrollSVG.stopAnimating()
     }
@@ -17,6 +25,15 @@ const ScrollDemo = () => {
   useEffect(() => {
     if (activeSvg) {
       setScrollSVG(scrollSvg(activeSvg))
+      setPickableSvgs((prev) => {
+        return {
+          "scroll-line-1": "",
+          "scroll-line-2": "",
+          "scroll-line-3": "",
+          "scroll-line-4": "",
+          [activeSvg.id]: "active",
+        }
+      })
     }
   }, [activeSvg])
 
@@ -26,6 +43,29 @@ const ScrollDemo = () => {
     }
   }, [options])
 
+  function changeSvg(svgId: string) {
+    const svgPath = document.querySelector(svgId) as SVGPathElement
+    setActiveSvg(svgPath)
+    setPickSvgDropdown("")
+  }
+
+  useEffect(() => {
+    const dropdown = (e: Event) => {
+      const isDropdown = (e.target as HTMLElement).closest(".pick-svg-lbl")
+      if (isDropdown === null) {
+        setPickSvgDropdown("")
+      } else {
+        setPickSvgDropdown("active")
+      }
+    }
+
+    window.addEventListener("click", dropdown)
+
+    return () => {
+      window.removeEventListener("click", dropdown)
+    }
+  }, [])
+
   return (
     <>
       <main>
@@ -33,7 +73,36 @@ const ScrollDemo = () => {
           <img src='/imgs/scroll-svg/scroll-down.png' alt='Scroll Down' />
         </section>
         <section className='svg-section'>
-          <svg className='active' viewBox='0 0 476 927' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <svg
+            className={pickableSvgs["scroll-line-1"]}
+            viewBox='0 0 9 699'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'>
+            <path
+              id='scroll-line-1'
+              d='M4.95758 694.5V4'
+              stroke='url(#paint0_linear_102_3)'
+              strokeWidth='8'
+              strokeLinecap='round'
+            />
+            <defs>
+              <linearGradient
+                id='paint0_linear_102_3'
+                x1='-33.4736'
+                y1='-33.5001'
+                x2='53.1928'
+                y2='1169.5'
+                gradientUnits='userSpaceOnUse'>
+                <stop stopColor='#F87D37' />
+                <stop offset='1' stopColor='#FBAA23' />
+              </linearGradient>
+            </defs>
+          </svg>
+          <svg
+            className={pickableSvgs["scroll-line-2"]}
+            viewBox='0 0 476 927'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'>
             <path
               id='scroll-line-2'
               d='M238.458 4C238.458 4 240 28.1667 245 52.5C250 76.8333 276.758 123.7 369.958 160.5C407.458 175.307 455.501 200.5 464.501 258C468.444 283.193 462 334 424 366C390.211 394.454 302.972 416.847 238.458 436C142.458 464.5 121 471.14 65.5 516C46 531.762 18.5001 559 6.99998 605C-1.63757 639.55 11.4091 672 29 693.5C65 737.5 107.235 746.5 147.5 762.5C187.765 778.5 199 786.5 199 786.5C237.5 811 238.458 860.5 238.458 860.5V916.5'
@@ -63,20 +132,23 @@ const ScrollDemo = () => {
         <div className='aside-btn'>
           <img src='/imgs/scroll-svg/side-arrow.svg' alt='' />
         </div>
-        <section className='pick-svg-section'>
+        <section className={`pick-svg-section ${pickSvgDropdown}`}>
           <div tabIndex={0} className='pick-svg-lbl'>
             <h3>Pick Svg</h3>
             <img className='dropdown-arrow' src='/imgs/scroll-svg/dropdown-arrow.svg' alt='' />
           </div>
           <div className='dropdown'>
-            <figure tabIndex={0}>
+            <figure onClick={() => changeSvg("#scroll-line-1")} tabIndex={0}>
               <img src='/imgs/scroll-svg/svg1.svg' alt='' />
             </figure>
-            <figure tabIndex={0}>
+            <figure onClick={() => changeSvg("#scroll-line-2")} tabIndex={0}>
               <img src='/imgs/scroll-svg/svg2.svg' alt='' />
             </figure>
-            <figure tabIndex={0}>
+            <figure onClick={() => changeSvg("#scroll-line-3")} tabIndex={0}>
               <img src='/imgs/scroll-svg/svg3.svg' alt='' />
+            </figure>
+            <figure onClick={() => changeSvg("#scroll-line-4")} tabIndex={0}>
+              <img src='/imgs/scroll-svg/svg4.svg' alt='' />
             </figure>
           </div>
         </section>
