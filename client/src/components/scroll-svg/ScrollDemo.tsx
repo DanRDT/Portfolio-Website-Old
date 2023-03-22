@@ -1,10 +1,18 @@
 import { useEffect, useState } from "react"
 import scrollSvg from "scroll-svg"
 
+const defaultOptions = {
+  invert: false,
+  draw_origin: "center",
+  offset: 0,
+  speed: 1,
+  undraw: false,
+}
+Object.freeze(defaultOptions)
+
 const ScrollDemo = () => {
   const [scrollSVG, setScrollSVG] = useState() as any
   const [activeSvg, setActiveSvg] = useState() as any
-  const [options, setOptions] = useState() as any
   const [pickSvgDropdown, setPickSvgDropdown] = useState("")
   const [pickableSvgs, setPickableSvgs] = useState({
     "scroll-line-1": "active",
@@ -12,6 +20,7 @@ const ScrollDemo = () => {
     "scroll-line-3": "",
     "scroll-line-4": "",
   })
+  const [options, setOptions] = useState(defaultOptions)
 
   useEffect(() => {
     const svgPath = document.querySelector("#scroll-line-1") as SVGPathElement
@@ -45,8 +54,27 @@ const ScrollDemo = () => {
 
   function changeSvg(svgId: string) {
     const svgPath = document.querySelector(svgId) as SVGPathElement
+    scrollSVG.stopAnimating()
+    setOptions(defaultOptions)
     setActiveSvg(svgPath)
     setPickSvgDropdown("")
+  }
+
+  function changeOptions(key: string, value: any) {
+    if (value === "true") {
+      value = true
+    } else if (value === "false") {
+      value = false
+    } else if (!isNaN(value)) {
+      value = Number(value)
+    }
+
+    setOptions((prev) => {
+      return {
+        ...prev,
+        [key]: value,
+      }
+    })
   }
 
   useEffect(() => {
@@ -58,7 +86,6 @@ const ScrollDemo = () => {
         setPickSvgDropdown("active")
       }
     }
-
     window.addEventListener("click", dropdown)
 
     return () => {
@@ -123,6 +150,55 @@ const ScrollDemo = () => {
               </linearGradient>
             </defs>
           </svg>
+          <svg
+            className={pickableSvgs["scroll-line-3"]}
+            viewBox='0 0 343 637'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'>
+            <path
+              id='scroll-line-3'
+              d='M178.458 0.5V142H339V292.5H4.5V462H178.458V636.5'
+              stroke='url(#paint0_linear_2_3)'
+              strokeWidth='8'
+            />
+            <defs>
+              <linearGradient
+                id='paint0_linear_2_3'
+                x1='140.026'
+                y1='-37.0001'
+                x2='226.693'
+                y2='1166'
+                gradientUnits='userSpaceOnUse'>
+                <stop stopColor='#F87D37' />
+                <stop offset='1' stopColor='#FBAA23' />
+              </linearGradient>
+            </defs>
+          </svg>
+          <svg
+            className={pickableSvgs["scroll-line-4"]}
+            viewBox='0 0 580 768'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'>
+            <path
+              id='scroll-line-4'
+              d='M485 4C485 4 527.352 194.119 450.5 198C402.3 200.434 363.35 173.579 349 127.5C326.705 55.9107 486.991 75.489 541 127.5C602.046 186.288 574.694 278.76 520 343.5C458.222 416.625 368.715 417.516 278.5 385.5C234.403 369.851 217.742 350.5 221.5 329.5C230 282 278.5 277.5 321.5 312C393.382 369.673 297.5 528 264.5 541C231.5 554 153.06 582.198 91 554.5C48.4871 535.526 4.00004 513.5 4 473C3.99996 432.5 114.84 430.22 166 467.5C247.063 526.57 126.835 625.223 63.5 703C42.4871 728.804 4 764 4 764'
+              stroke='url(#paint0_radial_104_5)'
+              strokeWidth='8'
+              strokeLinecap='round'
+            />
+            <defs>
+              <radialGradient
+                id='paint0_radial_104_5'
+                cx='0'
+                cy='0'
+                r='1'
+                gradientUnits='userSpaceOnUse'
+                gradientTransform='translate(465 147.5) rotate(124.873) scale(806.29 606.555)'>
+                <stop stopColor='#F87D37' />
+                <stop offset='1' stopColor='#FBAA23' />
+              </radialGradient>
+            </defs>
+          </svg>
         </section>
         <section className='below-svg'>
           <img src='/imgs/scroll-svg/scroll-up.png' alt='Scroll Up' />
@@ -162,7 +238,12 @@ const ScrollDemo = () => {
               <h3 className='options-text'>
                 <span className='option-name'>invert</span>:
               </h3>
-              <select name='invert' id='invert'>
+              <select
+                onChange={(e) => {
+                  changeOptions(e.target.name, e.target.value)
+                }}
+                value={options.invert + ""}
+                name='invert'>
                 <option value='false'>false</option>
                 <option value='true'>true</option>
               </select>
@@ -179,7 +260,14 @@ const ScrollDemo = () => {
               <h3 className='options-text'>
                 <span className='option-name'>draw_origin</span>:
               </h3>
-              <input type='text' />
+              <input
+                onChange={(e) => {
+                  changeOptions(e.target.name, e.target.value)
+                }}
+                value={options.draw_origin + ""}
+                name='draw_origin'
+                type='text'
+              />
               <a href='https://github.com/DanRDT/scroll-svg#draw-origin' target='_blank' rel='noopener noreferrer'>
                 <img
                   className='more-info'
@@ -193,7 +281,14 @@ const ScrollDemo = () => {
               <h3 className='options-text'>
                 <span className='option-name'>offset</span>:
               </h3>
-              <input type='text' />
+              <input
+                value={options.offset + ""}
+                onChange={(e) => {
+                  changeOptions(e.target.name, e.target.value)
+                }}
+                type='text'
+                name='offset'
+              />
               <a href='https://github.com/DanRDT/scroll-svg#offset' target='_blank' rel='noopener noreferrer'>
                 <img
                   className='more-info'
@@ -207,7 +302,14 @@ const ScrollDemo = () => {
               <h3 className='options-text'>
                 <span className='option-name'>speed</span>:
               </h3>
-              <input type='text' />
+              <input
+                onChange={(e) => {
+                  changeOptions(e.target.name, e.target.value)
+                }}
+                value={options.speed + ""}
+                name='speed'
+                type='text'
+              />
               <a href='https://github.com/DanRDT/scroll-svg#speed' target='_blank' rel='noopener noreferrer'>
                 <img
                   className='more-info'
@@ -221,7 +323,12 @@ const ScrollDemo = () => {
               <h3 className='options-text'>
                 <span className='option-name'>undraw</span>:
               </h3>
-              <select name='undraw' id='undraw'>
+              <select
+                onChange={(e) => {
+                  changeOptions(e.target.name, e.target.value)
+                }}
+                value={options.undraw + ""}
+                name='undraw'>
                 <option value='false'>false</option>
                 <option value='true'>true</option>
               </select>

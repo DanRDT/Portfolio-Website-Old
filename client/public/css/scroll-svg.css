@@ -129,12 +129,12 @@ main {
 }
 
 .svg-section svg {
-  display: none;
   position: absolute;
   height: 100%;
+  opacity: 0;
 }
 .svg-section svg.active {
-  display: flex;
+  opacity: 1;
 }
 
 /* SVG Customization Menu */
