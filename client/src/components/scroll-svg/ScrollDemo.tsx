@@ -1,14 +1,30 @@
-import react, { useEffect } from "react"
+import { useEffect, useState } from "react"
 import scrollSvg from "scroll-svg"
 
 const ScrollDemo = () => {
+  const [scrollSVG, setScrollSVG] = useState() as any
+  const [activeSvg, setActiveSvg] = useState() as any
+  const [options, setOptions] = useState()
+
   useEffect(() => {
     const svgPath = document.querySelector("#scroll-line-2") as SVGPathElement
-    const animatedSvg = scrollSvg(svgPath)
+    setScrollSVG(scrollSvg(svgPath))
     return () => {
-      animatedSvg.removeListener()
+      scrollSVG.stopAnimating()
     }
   }, [])
+
+  useEffect(() => {
+    if (activeSvg) {
+      setScrollSVG(scrollSvg(activeSvg))
+    }
+  }, [activeSvg])
+
+  useEffect(() => {
+    if (scrollSVG) {
+      scrollSVG.changeOptions(options)
+    }
+  }, [options])
 
   return (
     <>
@@ -152,10 +168,18 @@ const ScrollDemo = () => {
           </h3>
         </section>
         <section className='svg-methods'>
-          <h3 className='svg-method'>addListener()</h3>
-          <h3 className='svg-method'>removeListener()</h3>
-          <h3 className='svg-method'>clear()</h3>
-          <h3 className='svg-method'>fill()</h3>
+          <h3 className='svg-method' onClick={() => scrollSVG.animate()}>
+            animate()
+          </h3>
+          <h3 className='svg-method' onClick={() => scrollSVG.stopAnimating()}>
+            stopAnimating()
+          </h3>
+          <h3 className='svg-method' onClick={() => scrollSVG.clear()}>
+            clear()
+          </h3>
+          <h3 className='svg-method' onClick={() => scrollSVG.fill()}>
+            fill()
+          </h3>
         </section>
       </aside>
     </>
