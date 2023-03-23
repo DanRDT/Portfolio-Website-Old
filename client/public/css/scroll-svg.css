@@ -280,6 +280,15 @@ aside {
   cursor: pointer;
 }
 
+.option.false input,
+.option.false select {
+  border: 1px solid red;
+}
+.option.false input:focus,
+.option.false select:focus {
+  outline: 1px solid red;
+}
+
 .more-info {
   width: 20px;
   height: 20px;
