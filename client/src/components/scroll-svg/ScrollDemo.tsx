@@ -32,8 +32,8 @@ const ScrollDemo = () => {
   const [activeSvg, setActiveSvg] = useState() as any
   const [pickSvgDropdown, setPickSvgDropdown] = useState("")
   const [pickableSvgs, setPickableSvgs] = useState({
-    "scroll-line-1": "active",
-    "scroll-line-2": "",
+    "scroll-line-1": "",
+    "scroll-line-2": "active",
     "scroll-line-3": "",
     "scroll-line-4": "",
   })
@@ -46,7 +46,7 @@ const ScrollDemo = () => {
 
   // setup default active svg
   useEffect(() => {
-    const svgPath = document.querySelector("#scroll-line-1") as SVGPathElement
+    const svgPath = document.querySelector("#scroll-line-2") as SVGPathElement
     setActiveSvg(svgPath)
     return () => {
       scrollSVG.stopAnimating()
