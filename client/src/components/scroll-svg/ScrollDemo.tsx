@@ -81,6 +81,7 @@ const ScrollDemo = () => {
     const svgPath = document.querySelector(svgId) as SVGPathElement
     scrollSVG.stopAnimating()
     setOptions(defaultOptions)
+    setOptionsInput(defaultOptionsInput)
     setOptionsCSS(defaultOptionsCSS)
     setActiveSvg(svgPath)
     setPickSvgDropdown("")
@@ -96,7 +97,6 @@ const ScrollDemo = () => {
     })
 
     const value = getParsedValue(key, inputValue)
-
     // update css for input
     checkInput(key, inputValue)
 
@@ -106,17 +106,6 @@ const ScrollDemo = () => {
         [key]: value,
       }
     })
-  }
-
-  function getParsedValue(key: string, value: string): boolean | number | string {
-    if (key === "invert" || key === "undraw") {
-      if (value === "true") return true
-      else return false
-    } else if (key === "draw_origin") {
-      if (isNaN(Number(value))) return value
-      else return Number(value)
-    } else if (key === "offset" || key === "speed") return Number(value)
-    else return value
   }
 
   function checkInput(key: string, value: string): void {
@@ -129,7 +118,14 @@ const ScrollDemo = () => {
         if (Number(value) >= 0 && Number(value) <= 1) updateOptionsCSS(key, true)
         else updateOptionsCSS(key, false)
       } else updateOptionsCSS(key, false)
+    } else if (key === "offset") {
+      if (!isNaN(Number(value))) updateOptionsCSS(key, true)
+      else updateOptionsCSS(key, false)
+    } else if (key === "speed") {
+      if (!isNaN(Number(value)) && Number(value) > 0) updateOptionsCSS(key, true)
+      else updateOptionsCSS(key, false)
     }
+    if (value === "" || value === " " || value === "  " || value === "   ") updateOptionsCSS(key, false)
   }
 
   function updateOptionsCSS(key: string, value: boolean) {
@@ -428,6 +424,17 @@ const ScrollDemo = () => {
       </aside>
     </>
   )
+}
+
+function getParsedValue(key: string, value: string): boolean | number | string {
+  if (key === "invert" || key === "undraw") {
+    if (value === "true") return true
+    else return false
+  } else if (key === "draw_origin") {
+    if (isNaN(Number(value))) return value
+    else return Number(value)
+  } else if (key === "offset" || key === "speed") return Number(value)
+  else return value
 }
 
 export default ScrollDemo
