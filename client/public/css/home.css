@@ -803,7 +803,7 @@ main {
   align-items: center;
   border: 0.3rem solid var(--primary-color);
   transition: background 0.2s;
-  animation: hover 3s linear 1s reverse infinite;
+  /* animation: hover 3s linear 1s reverse infinite; */
 }
 .project-link:hover {
   background-color: var(--primary-color);
@@ -817,6 +817,13 @@ main {
   transform: translateX(-50%);
   transition: transform 0s, opacity 0.2s;
   opacity: 0;
+}
+
+.project-link .check-it-out {
+  position: absolute;
+  top: 0;
+  left: 7rem;
+  scale: 1.5;
 }
 
 .github-btn {
