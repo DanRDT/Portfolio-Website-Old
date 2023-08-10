@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react"
-import scrollSvg from "scroll-svg"
+import { useEffect, useState } from 'react'
+import scrollSvg from 'scroll-svg'
 
 const defaultOptions = {
   invert: false,
-  draw_origin: "center",
+  draw_origin: 'center',
   offset: 0,
   speed: 1,
   undraw: false,
 }
 const defaultOptionsInput = {
-  invert: "false",
-  draw_origin: "center",
-  offset: "0",
-  speed: "1",
-  undraw: "false",
+  invert: 'false',
+  draw_origin: 'center',
+  offset: '0',
+  speed: '1',
+  undraw: 'false',
 }
 // if true then valid input
 const defaultOptionsCSS = {
@@ -30,12 +30,12 @@ Object.freeze(defaultOptionsCSS)
 const ScrollDemo = () => {
   const [scrollSVG, setScrollSVG] = useState() as any
   const [activeSvg, setActiveSvg] = useState() as any
-  const [pickSvgDropdown, setPickSvgDropdown] = useState("")
+  const [pickSvgDropdown, setPickSvgDropdown] = useState('')
   const [pickableSvgs, setPickableSvgs] = useState({
-    "scroll-line-1": "",
-    "scroll-line-2": "active",
-    "scroll-line-3": "",
-    "scroll-line-4": "",
+    'scroll-line-1': '',
+    'scroll-line-2': 'active',
+    'scroll-line-3': '',
+    'scroll-line-4': '',
   })
   //used for options real values
   const [options, setOptions] = useState(defaultOptions)
@@ -46,7 +46,7 @@ const ScrollDemo = () => {
 
   // setup default active svg
   useEffect(() => {
-    const svgPath = document.querySelector("#scroll-line-2") as SVGPathElement
+    const svgPath = document.querySelector('#scroll-line-2') as SVGPathElement
     setActiveSvg(svgPath)
     return () => {
       scrollSVG.stopAnimating()
@@ -57,13 +57,13 @@ const ScrollDemo = () => {
   useEffect(() => {
     if (activeSvg) {
       setScrollSVG(scrollSvg(activeSvg))
-      setPickableSvgs((prev) => {
+      setPickableSvgs(prev => {
         return {
-          "scroll-line-1": "",
-          "scroll-line-2": "",
-          "scroll-line-3": "",
-          "scroll-line-4": "",
-          [activeSvg.id]: "active",
+          'scroll-line-1': '',
+          'scroll-line-2': '',
+          'scroll-line-3': '',
+          'scroll-line-4': '',
+          [activeSvg.id]: 'active',
         }
       })
     }
@@ -84,12 +84,12 @@ const ScrollDemo = () => {
     setOptionsInput(defaultOptionsInput)
     setOptionsCSS(defaultOptionsCSS)
     setActiveSvg(svgPath)
-    setPickSvgDropdown("")
+    setPickSvgDropdown('')
   }
 
   function changeOptions(key: string, inputValue: string): void {
     // update controlled input
-    setOptionsInput((prev) => {
+    setOptionsInput(prev => {
       return {
         ...prev,
         [key]: inputValue,
@@ -100,7 +100,7 @@ const ScrollDemo = () => {
     // update css for input
     checkInput(key, inputValue)
 
-    setOptions((prev) => {
+    setOptions(prev => {
       return {
         ...prev,
         [key]: value,
@@ -109,27 +109,27 @@ const ScrollDemo = () => {
   }
 
   function checkInput(key: string, value: string): void {
-    if (key === "invert" || key === "undraw") {
-      if (value !== "true" && value !== "false") updateOptionsCSS(key, false)
+    if (key === 'invert' || key === 'undraw') {
+      if (value !== 'true' && value !== 'false') updateOptionsCSS(key, false)
       else updateOptionsCSS(key, true)
-    } else if (key === "draw_origin") {
-      if (value === "center" || value === "top" || value === "bottom") updateOptionsCSS(key, true)
+    } else if (key === 'draw_origin') {
+      if (value === 'center' || value === 'top' || value === 'bottom') updateOptionsCSS(key, true)
       else if (!isNaN(Number(value))) {
         if (Number(value) >= 0 && Number(value) <= 1) updateOptionsCSS(key, true)
         else updateOptionsCSS(key, false)
       } else updateOptionsCSS(key, false)
-    } else if (key === "offset") {
+    } else if (key === 'offset') {
       if (!isNaN(Number(value))) updateOptionsCSS(key, true)
       else updateOptionsCSS(key, false)
-    } else if (key === "speed") {
+    } else if (key === 'speed') {
       if (!isNaN(Number(value)) && Number(value) > 0) updateOptionsCSS(key, true)
       else updateOptionsCSS(key, false)
     }
-    if (value === "" || value === " " || value === "  " || value === "   ") updateOptionsCSS(key, false)
+    if (value === '' || value === ' ' || value === '  ' || value === '   ') updateOptionsCSS(key, false)
   }
 
   function updateOptionsCSS(key: string, value: boolean) {
-    setOptionsCSS((prev) => {
+    setOptionsCSS(prev => {
       return {
         ...prev,
         [key]: value,
@@ -140,17 +140,17 @@ const ScrollDemo = () => {
   useEffect(() => {
     // close and open svg dropdown
     const dropdown = (e: Event) => {
-      const isDropdown = (e.target as HTMLElement).closest(".pick-svg-lbl")
+      const isDropdown = (e.target as HTMLElement).closest('.pick-svg-lbl')
       if (isDropdown === null) {
-        setPickSvgDropdown("")
+        setPickSvgDropdown('')
       } else {
-        setPickSvgDropdown("active")
+        setPickSvgDropdown('active')
       }
     }
-    window.addEventListener("click", dropdown)
+    window.addEventListener('click', dropdown)
 
     return () => {
-      window.removeEventListener("click", dropdown)
+      window.removeEventListener('click', dropdown)
     }
   }, [])
 
@@ -161,14 +161,10 @@ const ScrollDemo = () => {
           <img src='/imgs/scroll-svg/scroll-down.png' alt='Scroll Down' />
         </section>
         <section className='svg-section'>
-          <svg
-            className={pickableSvgs["scroll-line-1"]}
-            viewBox='0 0 9 699'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'>
+          <svg className={pickableSvgs['scroll-line-1']} viewBox='0 0 9 699' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path
               id='scroll-line-1'
-              d='M4.95758 694.5V4'
+              d='M 5 4 V 694.5'
               stroke='url(#paint0_linear_102_3)'
               strokeWidth='8'
               strokeLinecap='round'
@@ -187,7 +183,7 @@ const ScrollDemo = () => {
             </defs>
           </svg>
           <svg
-            className={pickableSvgs["scroll-line-2"]}
+            className={pickableSvgs['scroll-line-2']}
             viewBox='0 0 476 927'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'>
@@ -212,7 +208,7 @@ const ScrollDemo = () => {
             </defs>
           </svg>
           <svg
-            className={pickableSvgs["scroll-line-3"]}
+            className={pickableSvgs['scroll-line-3']}
             viewBox='0 0 343 637'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'>
@@ -236,7 +232,7 @@ const ScrollDemo = () => {
             </defs>
           </svg>
           <svg
-            className={pickableSvgs["scroll-line-4"]}
+            className={pickableSvgs['scroll-line-4']}
             viewBox='0 0 580 768'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'>
@@ -275,16 +271,16 @@ const ScrollDemo = () => {
             <img className='dropdown-arrow' src='/imgs/scroll-svg/dropdown-arrow.svg' alt='' />
           </div>
           <div className='dropdown'>
-            <figure onClick={() => changeSvg("#scroll-line-1")} tabIndex={0}>
+            <figure onClick={() => changeSvg('#scroll-line-1')} tabIndex={0}>
               <img src='/imgs/scroll-svg/svg1.svg' alt='' />
             </figure>
-            <figure onClick={() => changeSvg("#scroll-line-2")} tabIndex={0}>
+            <figure onClick={() => changeSvg('#scroll-line-2')} tabIndex={0}>
               <img src='/imgs/scroll-svg/svg2.svg' alt='' />
             </figure>
-            <figure onClick={() => changeSvg("#scroll-line-3")} tabIndex={0}>
+            <figure onClick={() => changeSvg('#scroll-line-3')} tabIndex={0}>
               <img src='/imgs/scroll-svg/svg3.svg' alt='' />
             </figure>
-            <figure onClick={() => changeSvg("#scroll-line-4")} tabIndex={0}>
+            <figure onClick={() => changeSvg('#scroll-line-4')} tabIndex={0}>
               <img src='/imgs/scroll-svg/svg4.svg' alt='' />
             </figure>
           </div>
@@ -292,7 +288,7 @@ const ScrollDemo = () => {
         <section className='options-section'>
           <h3 className='options-text'>
             <span className='const'>const</span> <span className='variable'>options</span>&nbsp;&nbsp;=&nbsp;&nbsp;
-            <span className='bracket'>{"{"}</span>
+            <span className='bracket'>{'{'}</span>
           </h3>
           <div className='options-container'>
             <div className={`option ${optionsCSS.invert}`}>
@@ -300,7 +296,7 @@ const ScrollDemo = () => {
                 <span className='option-name'>invert</span>:
               </h3>
               <select
-                onChange={(e) => {
+                onChange={e => {
                   changeOptions(e.target.name, e.target.value)
                 }}
                 value={optionsInput.invert}
@@ -322,7 +318,7 @@ const ScrollDemo = () => {
                 <span className='option-name'>draw_origin</span>:
               </h3>
               <input
-                onChange={(e) => {
+                onChange={e => {
                   changeOptions(e.target.name, e.target.value)
                 }}
                 value={optionsInput.draw_origin}
@@ -344,7 +340,7 @@ const ScrollDemo = () => {
               </h3>
               <input
                 value={optionsInput.offset}
-                onChange={(e) => {
+                onChange={e => {
                   changeOptions(e.target.name, e.target.value)
                 }}
                 type='text'
@@ -364,7 +360,7 @@ const ScrollDemo = () => {
                 <span className='option-name'>speed</span>:
               </h3>
               <input
-                onChange={(e) => {
+                onChange={e => {
                   changeOptions(e.target.name, e.target.value)
                 }}
                 value={optionsInput.speed}
@@ -385,7 +381,7 @@ const ScrollDemo = () => {
                 <span className='option-name'>undraw</span>:
               </h3>
               <select
-                onChange={(e) => {
+                onChange={e => {
                   changeOptions(e.target.name, e.target.value)
                 }}
                 value={optionsInput.undraw}
@@ -404,7 +400,7 @@ const ScrollDemo = () => {
             </div>
           </div>
           <h3 className='options-text'>
-            <span className='bracket'>{"}"}</span>
+            <span className='bracket'>{'}'}</span>
           </h3>
         </section>
         <section className='svg-methods'>
@@ -427,13 +423,13 @@ const ScrollDemo = () => {
 }
 
 function getParsedValue(key: string, value: string): boolean | number | string {
-  if (key === "invert" || key === "undraw") {
-    if (value === "true") return true
+  if (key === 'invert' || key === 'undraw') {
+    if (value === 'true') return true
     else return false
-  } else if (key === "draw_origin") {
+  } else if (key === 'draw_origin') {
     if (isNaN(Number(value))) return value
     else return Number(value)
-  } else if (key === "offset" || key === "speed") return Number(value)
+  } else if (key === 'offset' || key === 'speed') return Number(value)
   else return value
 }
 
