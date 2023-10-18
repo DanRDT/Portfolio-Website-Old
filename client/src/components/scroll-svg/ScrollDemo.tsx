@@ -49,6 +49,8 @@ const ScrollDemo = () => {
     const svgPath = document.querySelector('#scroll-line-2') as SVGPathElement
     setActiveSvg(svgPath)
     return () => {
+      console.log('stopped') 
+
       scrollSVG.stopAnimating()
     }
   }, [])
@@ -85,6 +87,8 @@ const ScrollDemo = () => {
     setOptionsCSS(defaultOptionsCSS)
     setActiveSvg(svgPath)
     setPickSvgDropdown('')
+    console.log('changed svg');
+    
   }
 
   function changeOptions(key: string, inputValue: string): void {
